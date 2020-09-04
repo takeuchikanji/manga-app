@@ -24,12 +24,23 @@ Things you may want to cover:
 * ...
 
 
+## authorsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+
+- has_many :mangas
+
+
 ## mangasテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|author|string|null: false|
+|author_id|integer|null: false, foreign_key: true|
 |image|text||
 |number_of_books|integer|null: false|
 |summary|text|null: false|
@@ -39,6 +50,8 @@ Things you may want to cover:
 
 - has_many :mangas_users
 - has_many :users, through: :mangas_users
+- has_many :comments
+- belongs_to :author
 
 
 ## usersテーブル
@@ -53,6 +66,7 @@ Things you may want to cover:
 
 - has_many :mangas_users
 - has_many :mangas, through: :mangas_users
+- has_many :comments
 
 
 ## mangas_usersテーブル
@@ -91,3 +105,16 @@ Column|Type|Options|
 
 - belongs_to :manga
 - belongs_to :genre
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|manga_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :manga
