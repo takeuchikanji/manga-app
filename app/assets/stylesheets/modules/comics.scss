@@ -15,7 +15,6 @@
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding-right: 40px;
   &__left{
     background-color: limegreen;
     width: 70%;
@@ -28,9 +27,29 @@
   }
   &__right {
     background-color: lightseagreen;
-      .login-btn {
-        line-height: 80px;
-      }
+    width: 30%;
+    display: flex;
+    padding-left: 250px;
+    .login-btn {
+      line-height: 80px;
+      margin-right: 10px;
+      background-color: magenta;
+    }
+    .logout-btn {
+      line-height: 80px;
+      margin-right: 10px;
+      background-color: blueviolet;
+    }
+    .edit-btn {
+      line-height: 80px;
+      margin-right: 10px;
+      background-color: yellowgreen;
+    }
+    .new-btn {
+      line-height: 80px;
+      margin-right: 10px;
+      background-color: lightcyan;
+    }
   }
 }
 
