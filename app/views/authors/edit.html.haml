@@ -1,0 +1,20 @@
+%h1 編集画面
+.manga
+  = form_with model: @author, html: {class: "Form"}, local: true do |a|
+    = a.text_field :name, placeholder: "作者"
+    %br
+    = a.fields_for :comics do |c|
+      = c.text_field :name, placeholder: "作品名"
+      %br
+      = c.file_field :image, placeholder: "漫画の画像"
+      %br
+      = c.number_field :number_of_books, placeholder: "巻数"
+      %br
+      = c.text_area :summary, placeholder: "あらすじ" 
+      %br
+      = c.text_area :review, placeholder: "レビュー"
+      %br
+      = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre
+      %br
+    = a.submit "保存"
+  = link_to "削除", author_path(@author.id), method: :delete

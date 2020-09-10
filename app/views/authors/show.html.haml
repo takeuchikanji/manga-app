@@ -1,0 +1,20 @@
+%p 
+  <<マンガ情報>>
+  %br
+  = @author.name
+  %br
+  = @comic.name
+  %br
+  = @comic.number_of_books
+  %br
+  = @comic.summary
+  %br
+  = @comic.review
+  %br
+  = @comic.genres.pluck(:genre).join(", ")
+  %br
+  = link_to "トップページに戻る", root_path
+  %br
+  = link_to "編集ボタン", edit_author_path(@author.id)
+  %br
+  = link_to "削除ボタン", author_path(@author.id), method: :delete
