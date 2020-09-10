@@ -32,10 +32,10 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :mangas
+- has_many :comics
 
 
-## mangasテーブル
+## comicsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -48,9 +48,11 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :mangas_users
-- has_many :users, through: :mangas_users
+- has_many :comics_users
+- has_many :users, through: :comics_users
 - has_many :comments
+- has_many :comics_genres
+- has_many :genres, through: :comics_genres
 - belongs_to :author
 
 
@@ -64,12 +66,12 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :mangas_users
-- has_many :mangas, through: :mangas_users
+- has_many :comics_users
+- has_many :comics, through: :comics_users
 - has_many :comments
 
 
-## mangas_usersテーブル
+## comics_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -90,11 +92,11 @@ Column|Type|Options|
 
 ### Association
 
-- has_many :mangas_genres
-- has_many :mangas, through: :mangas_genres
+- has_many :comics_genres
+- has_many :comics, through: :comics_genres
 
 
-## mangas_genresテーブル
+## comics_genresテーブル
 
 |Column|Type|Options|
 |------|----|-------|
