@@ -2,7 +2,17 @@
   .header__left
     = link_to "Manga-App", root_path, class: "app-title"
   .header__right
-    = link_to "新規登録", new_user_registration_path, class: "new-btn"
-    = link_to "ログイン", new_user_session_path, class: "login-btn"
-    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
-    = link_to "垢編集", edit_user_registration_path, class: "edit-btn"
+    - if user_signed_in? && current_user.admin?
+      %p.edit-btn
+        = current_user.name
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+      = link_to "垢編集", edit_user_registration_path, class: "edit-btn"
+      = link_to "投稿", new_author_path, class: "logout-btn"
+    - elsif user_signed_in?
+      %p.edit-btn
+        = current_user.name
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
+      = link_to "垢編集", edit_user_registration_path, class: "edit-btn"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "login-btn"
+      = link_to "新規登録", new_user_registration_path, class: "new-btn"
