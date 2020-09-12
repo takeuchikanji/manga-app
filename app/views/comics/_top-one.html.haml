@@ -1,0 +1,22 @@
+.top 
+  .main
+    .select
+      %ul.select__list
+        %li.list__type
+          = link_to "一覧", root_path
+        %li.list__type
+          = link_to "検索", comics_path
+    .display
+      = search_form_for @q, url: search_comics_path do |f|
+        = f.label :search
+        = f.search_field :name_or_author_name_cont, placeholder: "作品名、作者"
+        %br
+        = f.label :genre_id_eq, 'ジャンル'
+        = f.collection_select :genres_id_eq, @genres, :id, :genre, :include_blank => '指定なし'
+        %br
+        = f.label :number_of_books, "巻数"
+        = f.text_field :number_of_books_gteq, placeholder: "以上"
+        = f.label :number_of_books, "〜"
+        = f.text_field :number_of_books_lt, placeholder: "未満"
+        = f.submit "検索"
+  = render "side"

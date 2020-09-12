@@ -2,6 +2,10 @@ class AuthorsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @authors = Author.all
+    # @q = Author.ransack(params[:q])
+    @comics = Comic.all
+    # @authors = @q.result(distinct: true)
   end
 
   def new
@@ -35,6 +39,11 @@ class AuthorsController < ApplicationController
     author.destroy
     redirect_to root_path
   end
+
+  # def search
+  #   @q = Author.ransack(params[:q])
+  #   @authors = @q.result(distinct: true)
+  # end
 
   private
 

@@ -1,6 +1,10 @@
 class ComicsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @comics = Comic.all
+    @q = Comic.ransack(params[:q])
+    @genres = Genre.all
+    @comics = @q.result(distinct: true)
   end
 
   def new
@@ -16,6 +20,10 @@ class ComicsController < ApplicationController
     end
   end
 
+  def search
+    @q = Comic.ransack(params[:q])
+    @comics = @q.result(distinct: true)
+  end
 
   private
 

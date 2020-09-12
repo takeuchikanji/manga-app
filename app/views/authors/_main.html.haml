@@ -1,0 +1,17 @@
+.main
+  .select
+    %ul.select__list
+      %li.list__type
+        = link_to "一覧", root_path
+      %li.list__type
+        = link_to "検索", comics_path
+  .display
+    %ul.display__list
+      - @comics.each do |comic|
+        %li.comic-box
+          = link_to author_path(comic.author.id), class: "comic-box__link" do
+            .comic-box__data
+              %p 
+                = comic.name
+              %p 
+                = comic.author.name
