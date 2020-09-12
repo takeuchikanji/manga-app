@@ -4,8 +4,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root "comics#index"
-  resources :comics, only: [:new, :create]
+  root "authors#index"
+  resources :comics, only: [:index, :new, :create] do
+    collection do
+      get 'search'
+    end
+  end
   resources :genres, only: [:new, :create]
-  resources :authors, only: [:new, :create, :edit, :update, :destroy, :show]
+  resources :authors
 end

@@ -12,7 +12,7 @@ class Ability
         can :access, :rails_admin
         can :manage, :all
       else
-        can :show, Author
+        can [:index, :show, :search], [Author, Comic]
       end
     #
     # The first argument to `can` is the action you are giving the user
