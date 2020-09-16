@@ -3,9 +3,8 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
-    # @q = Author.ransack(params[:q])
-    @comics = Comic.all
-    # @authors = @q.result(distinct: true)
+    @comics = Comic.all.page(params[:page]).per(5)
+    @comic = Comic.order(created_at: :desc).limit(5)
   end
 
   def new
