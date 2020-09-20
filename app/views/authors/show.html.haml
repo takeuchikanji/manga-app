@@ -1,6 +1,11 @@
 %p 
   <<マンガ情報>>
   %br
+  - if @comic.image?
+    = image_tag @comic.image.url
+  - else
+    = icon('fas', 'image', class: 'photo-icon')
+  %br
   = @author.name
   %br
   = @comic.name
