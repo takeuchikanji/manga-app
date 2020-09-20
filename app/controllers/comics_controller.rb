@@ -5,6 +5,7 @@ class ComicsController < ApplicationController
     @q = Comic.ransack(params[:q])
     @genres = Genre.all
     @comics = @q.result(distinct: true)
+    @comic = Comic.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -23,6 +24,7 @@ class ComicsController < ApplicationController
   def search
     @q = Comic.ransack(params[:q])
     @comics = @q.result(distinct: true)
+    @comic = Comic.order(created_at: :desc).limit(5)
   end
 
   private

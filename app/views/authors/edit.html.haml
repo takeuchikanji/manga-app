@@ -6,6 +6,11 @@
     = a.fields_for :comics do |c|
       = c.text_field :name, placeholder: "作品名"
       %br
+      - if @comic.image?
+        = image_tag @comic.image.url
+      - else
+        = icon('fas', 'image', class: 'photo-icon')
+      %br
       = c.file_field :image, placeholder: "漫画の画像"
       %br
       = c.number_field :number_of_books, placeholder: "巻数"

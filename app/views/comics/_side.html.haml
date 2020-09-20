@@ -20,37 +20,49 @@
           = icon("far", "circle", class: "circle__btn")
   .side__under
     %ul.side__under__list
-      %li.side__under__list__notice
+      - @comic.each do |comic|
+        %li.side__under__list__notice
         .notice__date
-          %p 9月5日
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        .notice__date
-          %p 9月5日
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        .notice__date
-          %p 9月5日
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
-      %li.side__under__list__notice
-        = link_to "新しく犬夜叉を追加しました", "#"
+          = l comic.created_at, format: :veryshort
+        = link_to "#{comic.name}を追加しました", author_path(comic.author.id)
+
+
+
+
+
+
+    -# %ul.side__under__list
+    -#   %li.side__under__list__notice
+    -#     .notice__date
+    -#       %p 9月5日
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     .notice__date
+    -#       %p 9月5日
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     .notice__date
+    -#       %p 9月5日
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
+    -#   %li.side__under__list__notice
+    -#     = link_to "新しく犬夜叉を追加しました", "#"
