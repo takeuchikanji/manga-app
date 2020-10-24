@@ -1,18 +1,28 @@
 .header 
-  .header__left
-    = link_to "Manga-App", root_path, class: "app-title"
-  .header__right
-    - if user_signed_in? && current_user.admin?
-      %p.edit-btn
-        = current_user.name
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
-      = link_to "垢編集", edit_user_registration_path, class: "edit-btn"
-      = link_to "投稿", new_author_path, class: "logout-btn"
-    - elsif user_signed_in?
-      %p.edit-btn
-        = current_user.name
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
-      = link_to "垢編集", edit_user_registration_path, class: "edit-btn"
-    - else
-      = link_to "ログイン", new_user_session_path, class: "login-btn"
-      = link_to "新規登録", new_user_registration_path, class: "new-btn"
+  .header__up
+    .header__up__left
+      %span 管理者のおすすめ漫画の紹介、備忘録なアプリとなっています。コメントもご自由にお書きください。
+    .header__up__right
+      %ul
+        - if user_signed_in? && current_user.admin?
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn btn"
+          %li
+            = link_to "マイページ遷移にしたい", edit_user_registration_path, class: "edit-btn btn"
+          %li
+            = link_to "投稿", new_author_path, class: "logout-btn btn"
+        - elsif user_signed_in?
+          %li
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn btn"
+          %li
+            = link_to "マイページ遷移にしたい", edit_user_registration_path, class: "edit-btn btn"
+        - else
+          %li
+            = link_to "ログイン", new_user_session_path, class: "login-btn btn"
+          %li
+            = link_to "新規登録", new_user_registration_path, class: "new-btn btn"
+
+  .header__under
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+

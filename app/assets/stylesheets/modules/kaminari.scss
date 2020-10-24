@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  .page-item {
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+  }
+  .page-item:hover {
+    opacity: 0.5;
+    border-radius: 50%;
+  }
+  .active-page {
+    border-radius: 50%;
+    background-color: lightgreen;
+    cursor: pointer;
+  }
+  .inactive-page {
+    border-radius: 50%;
+    background-color: rgb(236, 235, 235);
+    cursor: pointer;
+  }
+}
