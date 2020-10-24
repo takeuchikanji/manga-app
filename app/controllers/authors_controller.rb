@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
-    @comics = Comic.all.page(params[:page]).per(5)
+    @comics = Comic.all.page(params[:page]).per(15)
     @comic = Comic.order(created_at: :desc).limit(5)
   end
 

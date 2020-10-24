@@ -2,9 +2,9 @@
   .main
     .select
       %ul.select__list
-        %li.list__type
+        %li.list__type.inactive__btn
           = link_to "一覧", root_path
-        %li.list__type
+        %li.list__type.active__btn
           = link_to "検索", comics_path
     .display
       - if @comics.present?
@@ -20,4 +20,4 @@
           = "#{@comics.count}件表示"
       - else
         %p 条件に一致する作品はありません
-  = render "side"
+  = render "authors/side"

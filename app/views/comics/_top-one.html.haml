@@ -2,9 +2,9 @@
   .main
     .select
       %ul.select__list
-        %li.list__type
+        %li.list__type.inactive__btn
           = link_to "一覧", root_path
-        %li.list__type
+        %li.list__type.active__btn
           = link_to "検索", comics_path
     .display
       = search_form_for @q, url: search_comics_path do |f|
@@ -19,4 +19,4 @@
         = f.label :number_of_books, "〜"
         = f.text_field :number_of_books_lt, placeholder: "未満"
         = f.submit "検索"
-  = render "side"
+  = render "authors/side"

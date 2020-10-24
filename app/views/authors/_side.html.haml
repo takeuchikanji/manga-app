@@ -1,6 +1,7 @@
 .side 
   .side__up
-    .side__up__title オススメ漫画
+    .side__up__title 
+      %span 管理者のオススメ
     = link_to image_tag(src= "/assets/orange.jpg", class: "side__up__image"), "#"
     %ul.side__up__list
       %li.side__up__list__btn
@@ -19,44 +20,11 @@
         = link_to "#" do
           = icon("far", "circle", class: "circle__btn")
   .side__under
+    %p
+      %span お知らせ
     %ul.side__under__list
       - @comic.each do |comic|
         %li.side__under__list__notice
         .notice__date
           = l comic.created_at, format: :veryshort
         = link_to "#{comic.name}を追加しました", author_path(comic.author.id)
-
-
-
-
-      
-      -# %li.side__under__list__notice
-      -#   .notice__date
-      -#     %p 9月5日
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   .notice__date
-      -#     %p 9月5日
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
-      -# %li.side__under__list__notice
-      -#   = link_to "新しく犬夜叉を追加しました", "#"
