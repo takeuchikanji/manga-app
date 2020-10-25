@@ -7,17 +7,22 @@
         %li.list__type.active__btn
           = link_to "検索", comics_path
     .display
-      - if @comics.present?
-        %ul.display__list
-          - @comics.each do |comic|
-            %li.comic-box
-              = link_to author_path(comic.author.id), class: "comic-box__link" do
-                .comic-box__data
-                  %p 
-                    = comic.name
-                  %p 
-                    = comic.author.name
-          = "#{@comics.count}件表示"
-      - else
-        %p 条件に一致する作品はありません
+      .search-result__box
+        %p.search-result 検索結果
+        - if @comics.present?
+          %ul.display__list
+            %p.search-result__count
+              = "#{@comics_count.count}件表示"
+            - @comics.each do |comic|
+              %li.comic-box
+                = link_to author_path(comic.author.id), class: "comic-box__link" do
+                  .comic-box__data
+                    %p 
+                      = comic.name
+                    %p 
+                      = comic.author.name
+            = "#{@comics.count}件表示"
+        - else
+          %p 条件に一致する作品はありません
+        = paginate @comics
   = render "authors/side"
