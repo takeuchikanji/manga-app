@@ -6,13 +6,15 @@
       %li.list__type.inactive__btn
         = link_to "検索", comics_path
   .display
-    %ul.display__list
-      - @comics.each do |comic|
-        %li.comic-box
-          = link_to author_path(comic.author.id), class: "comic-box__link" do
-            .comic-box__data
-              %p 
-                = comic.name
-              %p 
-                = comic.author.name
+    .comics__all-box
+      %p.comics__all 紹介作品一覧
+      %ul.display__list
+        - @comics.each do |comic|
+          %li.comic-box
+            = link_to author_path(comic.author.id), class: "comic-box__link" do
+              .comic-box__data
+                %p 
+                  = comic.name
+                %p 
+                  = comic.author.name
     = paginate @comics

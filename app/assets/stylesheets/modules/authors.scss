@@ -117,21 +117,28 @@
     background-color: white;
     height: calc(100% - 65px);
     padding: 40px 100px;
-    .comic-box {
-      text-decoration: none;
-      margin-bottom: 30px;
-      padding: 5px;
-      border-bottom: 1px solid lightgreen;
-      &__link {
-        font-size: 20px;
+    .comics__all-box {
+      .comics__all {
+        font-size: 24px;
+        color: rgb(147, 224, 147);
+        margin-bottom: 30px;
+      }
+      .comic-box {
         text-decoration: none;
-      }
-      &__data {
-        display: flex;
-        justify-content: space-between;
-      }
-      .comic-box__data:hover {
-        color: lightcoral;
+        margin-bottom: 30px;
+        padding: 5px;
+        border-bottom: 1px solid lightgreen;
+        &__link {
+          font-size: 20px;
+          text-decoration: none;
+        }
+        &__data {
+          display: flex;
+          justify-content: space-between;
+        }
+        .comic-box__data:hover {
+          color: lightcoral;
+        }
       }
     }
   }
