@@ -7,16 +7,23 @@
         %li.list__type.active__btn
           = link_to "検索", comics_path
     .display
-      = search_form_for @q, url: search_comics_path do |f|
-        = f.label :search
-        = f.search_field :name_or_author_name_cont, placeholder: "作品名、作者"
-        %br
-        = f.label :genre_id_eq, 'ジャンル'
-        = f.collection_select :genres_id_eq, @genres, :id, :genre, :include_blank => '指定なし'
-        %br
-        = f.label :number_of_books, "巻数"
-        = f.text_field :number_of_books_gteq, placeholder: "以上"
-        = f.label :number_of_books, "〜"
-        = f.text_field :number_of_books_lt, placeholder: "未満"
-        = f.submit "検索"
+      .search-box
+        %p 探したい条件で検索することができます
+        = search_form_for @q, url: search_comics_path do |f|
+          .search-box__word
+            = f.label :search, '作品名、作者名から探せます'
+            %br
+            = f.search_field :name_or_author_name_cont, placeholder: "(例)アライブ"
+          .search-box__genre
+            = f.label :genre_id_eq, 'ジャンル'
+            %br
+            = f.collection_select :genres_id_eq, @genres, :id, :genre, :include_blank => '指定なし'
+          .search-box__number-of-books
+            = f.label :number_of_books, "巻数"
+            %br
+            = f.text_field :number_of_books_gteq, placeholder: "以上"
+            = f.label :number_of_books, "〜", class: "wavy-line"
+            = f.text_field :number_of_books_lt, placeholder: "未満"
+          .search-box__btn
+            = f.submit "検  索", class: "search__btn"
   = render "authors/side"

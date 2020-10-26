@@ -1,201 +1,177 @@
-* {
-  box-sizing: border-box;
-}
+//検索画面のCSS（comics/index.html）
 
-
-
-
-.wrapper {
-  display: block;
-  background-color: #f5f5f5;
-  a {
-    color: black;
-    text-decoration: none;
+.search-box {
+  p {
+    font-size: 24px;
+    color: rgb(147, 224, 147);
+    margin-bottom: 30px;
   }
-}
 
-.header {
-  height: auto;
-  &__up {
-    display: flex;
-    align-items: flex-end;
-    border-bottom: solid 1px silver;
-    padding: 10px 40px 10px;
-    &__left {
-      margin-right: auto;
-      width: 70%;
-      font-size: 20px;
-      line-height: 1.5em;
-      text-align: center;
-      overflow: hidden;
-    }
-    &__left span{
-      display: inline-block;
-      padding-left: 100%;
-      white-space: nowrap;
-      line-height: 1em;
-      animation: scrollAnime 17s linear infinite;
-    }
-    @keyframes scrollAnime{
-        0% { transform: translateX(0)}
-      100% { transform: translateX(-100%)}
-    }
-    &__right {
-      ul {
-        display: flex;
-        .btn {
-          margin-left: 10px;
-          font-size: 16px;
-        }
-        .btn:hover {
-          color: lightcoral;
-        }
-      }
+  label {
+    font-size: 20px;
+  }
+
+  &__word {
+    margin-bottom: 30px;
+    #q_name_or_author_name_cont {
+      width: 100%;
+      height: 40px;
+      margin-top: 10px;
+      padding: 0 10px;
     }
   }
 
-  &__under {
-    margin-top: 20px;
-    padding: 10px;
-    .app-title__box {
-      font-size: 50px;
+  &__genre {
+    margin-bottom: 30px;
+    #q_genres_id_eq {
+      width: 100%;
+      height: 40px;
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+  }
+
+  &__number-of-books {
+    margin-bottom: 30px;
+    #q_number_of_books_gteq {
+      height: 40px;
+      width: 120px;
+      margin-top: 10px;
+      padding: 0 10px;
+    }
+
+    .wavy-line {
       font-weight: bold;
-      text-align: center;
-      a {
-        padding: 20px;
-        background-color: #71dd9e;
-        border-radius: 50px;
-        color: white;
-      }
-    }
-  }
-}
-
-
-.top {
-  padding: 20px 100px 40px;
-  height: auto;
-  display: flex;
-}
-
-
-.main {
-  background-color: #e2dfdf;
-  width: 70%;
-  height: auto;
-  margin-bottom: 40px;
-  padding: 5px;
-  border-radius: 3px;
-  .select {
-    padding-top: 4px;
-    &__list {
-      display: flex;
-      .list__type {
-        background-color: #e2dfdf;
-        margin-left: 50px;
-        padding: 10px;
-        border-radius: 10px 10px 0 0;
-        a {
-          font-size: 20px;
-          font-weight: bold;
-          text-decoration: none;
-        }
-      }
-      .inactive__btn:hover {
-        opacity: 0.5;
-        background-color: rgb(160, 233, 196);
-      }
-      .active__btn {
-        background-color: white;
-      }
-    }
-  }
-  .display {
-    background-color: white;
-    height: calc(100% - 65px);
-    padding: 40px 100px;
-    .comic-box {
-      text-decoration: none;
-      margin-bottom: 30px;
-      padding: 5px;
-      border-bottom: 1px solid lightgreen;
-      &__link {
-        font-size: 20px;
-        text-decoration: none;
-      }
-      &__data {
-        display: flex;
-        justify-content: space-between;
-      }
-      .comic-box__data:hover {
-        color: lightcoral;
-      }
-    }
-  }
-}
-
-.side {
-  background-color: #f5f5f5;
-  margin-left: 30px;
-  width: 30%;
-  &__up {
-    height: 50vh;
-    text-align: center;
-    background-color: white;
-    padding: 30px 0;
-    border: solid 2px #e2dfdf;
-    border-radius: 3px;
-    &__title {
       font-size: 20px;
-      margin-bottom: 10px;
-      span {
-        border-bottom: solid 3px red;
-      }
+      margin: 0 30px;
     }
-    &__image {
-      height: 300px;
-      width: 200px;
-      object-fit: scale-down;
-      border: dashed 1px rgb(226, 234, 236);
-    }
-    &__list {
-      display: flex;
-      justify-content: center;
-      &__btn{
-        margin-left: 5px;
-        .circle__btn {
-          color: red;
-        }
-      }
+
+    #q_number_of_books_lt {
+      height: 40px;
+      width: 120px;
+      padding: 0 10px;
     }
   }
 
-  &__under {
-    background-color: white;
-    height: 500px;
-    margin-top: 10px;
-    padding: 40px;
-    text-align: center;
-    border: solid 2px #e2dfdf;
-    border-radius: 3px;
-    p {
+  &__btn {
+    margin: 40px auto 0;
+    width: 250px;
+    height: 40px;
+    .search__btn {
+      height: 100%;
+      width: 100%;
+      color: white;
+      font-weight: bold;
       font-size: 24px;
-      span {
-        border-bottom: solid 3px red;
-      }
+      background-color: rgb(147, 224, 147);
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      outline: none;
     }
-    &__list {
-      overflow: auto;
-      &__notice {
-        margin-bottom: 15px;
-        .notice__date {
-          text-align: left;
-          padding-left: 100px;
+  }
+}
+
+
+//検索結果のCSS
+
+
+.display__search {
+  background-color: white;
+  height: calc(100% - 65px);
+  padding: 40px 40px;
+
+  .search-result__box {
+    .search-result {
+      font-size: 28px;
+      color: rgb(147, 224, 147);
+      margin-bottom: 30px;
+      padding-left: 40px;
+    }
+
+    ul {
+      .search-result__count {
+        font-size: 20px;
+        margin-bottom: 40px;
+        padding-left: 50px;
+      }
+      .comics-box__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5 1fr);
+        justify-items: center;
+        align-items: center;
+        .comic-box__result {
+          width: 320px;
+          height: 360px;
+          padding: 10px;
+          // border: dashed 1px lightgray;
+          position: relative;
+          .up-left {
+            width: 80px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-left: solid 1px rgb(217, 243, 217);
+            border-top: solid 1px rgb(217, 243, 217);
+          }
+          .under-right {
+            width: 80px;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            bottom: 20px;
+            border-right: solid 1px rgb(217, 243, 217);
+            border-bottom: solid 1px rgb(217, 243, 217);
+          }
+          &__data {
+            display: flex;
+            margin-bottom: 15px;
+            .comic__result__image {
+              margin-right: 20px;
+              img {
+                width: 120px;
+                height: 192px;
+                object-fit: scale-down;
+                // border: dashed 1px lawngreen;
+              }
+            }
+            .comic__result__name__list {
+              max-width: 160px;
+              word-wrap:break-word;
+              .comic__result__name {
+                font-size: 16px;
+                margin: 10px 0;
+              }
+              .comic__result__author-name {
+                font-size: 16px;
+              }
+            }
+          }
+          &__summary {
+            padding: 0 20px 0;
+            max-height: 120px;
+            max-width: 300px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden;
+          }
         }
       }
-      a:hover {
-        color: lightcoral;
+      .displayed__results {
+        font-size: 18px;
+        margin-bottom: 40px;
+        padding-left: 50px;
+        color: #8a8282;
       }
+    }
+
+    .no__search-result {
+      font-size: 20px;
+      margin-bottom: 40px;
+      padding-left: 50px;
     }
   }
 }
