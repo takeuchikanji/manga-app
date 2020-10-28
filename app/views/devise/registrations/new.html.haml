@@ -1,0 +1,31 @@
+.wrapper__user
+
+  .header__user
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+  .main__user-box
+    %section.main__user-box__center
+      %h2 アカウント新規作成
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field_all
+          .field
+            = f.label :name, "ニックネーム"
+            %span （2文字以上10文字以内）
+            %br/
+            = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "例）マンガ星人", class: "form_default", required: true, maxlength: "10", minlength: "2"
+          .field
+            = f.label :email, "メールアドレス"
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例）xxx@yyy.zzz", class: "form_default", required: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: "最低6文字必要です", class: "form_default", required: true
+          .field
+            = f.label :password_confirmation, "もう一度パスワードを入力してください"
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form_default", required: true
+          .actions
+            = f.submit "アカウントをを作成する", class: "form_submit"
+      = render "devise/shared/links"

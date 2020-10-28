@@ -1,0 +1,26 @@
+.wrapper__user
+
+  .header__user
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+  .main__user-box
+    %section.main__user-box__center
+      %h2 ログイン画面
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field_all
+          .field
+            = f.label :email, "メールアドレス"
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "例）xxx@yyy.zzz", class: "form_default", required: true
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "current-password", class: "form_default", required: true
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions
+            = f.submit "ログインする", class: "form_submit"
+      = render "devise/shared/links"
