@@ -71,7 +71,11 @@
             background-color: #c7ecc7;
             border: none;
             cursor: pointer;
+            outline: none;
           }
+        }
+        .actions:hover {
+          opacity: 0.6;
         }
       }
 
@@ -89,7 +93,7 @@
         }
       }
 
-      .user__delete__fieid {
+      .user__delete__field {
         margin: 30px auto 0;
         width: 320px;
         .user__delete__btn {
@@ -101,6 +105,9 @@
           border: none;
           cursor: pointer;
         }
+      }
+      .user__delete__field:hover {
+        opacity: 0.6;
       }
     }
   }

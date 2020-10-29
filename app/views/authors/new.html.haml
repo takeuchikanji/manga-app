@@ -1,19 +1,52 @@
-%h1 新規投稿画面
-.manga
-  = form_with model: @author, html: {class: "Form"}, local: true do |a|
-    = a.text_field :name, placeholder: "作者"
-    %br
-    = a.fields_for :comics do |c|
-      = c.text_field :name, placeholder: "作品名"
-      %br
-      = c.file_field :image, placeholder: "漫画の画像"
-      %br
-      = c.number_field :number_of_books, placeholder: "巻数"
-      %br
-      = c.text_area :summary, placeholder: "あらすじ" 
-      %br
-      = c.text_area :review, placeholder: "レビュー"
-      %br
-      = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre
-      %br
-    = a.submit "保存"
+.wrapper__comic
+
+  .header__comic
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+
+  .main__comic-box
+    %section.main__comic-box__center
+      %h2 作品投稿
+      = form_with model: @author, html: {class: "Form"}, local: true do |a|
+        .field_all
+          .field
+            = a.label :name, "作者名"
+            %span （作者が2名以上いる場合は続けてご入力ください）
+            %br
+            = a.text_field :name, class: "form_default", required: true, placeholder: "例）河島正 × あだちとか"
+            %br
+          = a.fields_for :comics do |c|
+            .field
+              = c.label :name, "作品名"
+              %br
+              = c.text_field :name, class: "form_default", required: true, placeholder: "例）アライブ 最終進化的少年"
+              %br
+            .field
+              = c.label :number_of_books, "巻数"
+              %br
+              = c.number_field :number_of_books, class: "form_number", required: true
+              %br
+            .field
+              = c.label :number_of_books, "ジャンル"
+              %span （複数選択可）
+              %br
+              = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre
+              %br
+            .field
+              = c.label :number_of_books, "画像"
+              %span （表紙など作品がわかる画像を選択ください）
+              = c.file_field :image, class: "form_image", required: true
+              %br
+              .preview
+              %label{for: "author_comics_attributes_0_image", class: 'label'}
+                %i.far.fa-images.icon
+            .field
+              = c.label :summary, "あらすじ"
+              %br
+              = c.text_area :summary, class: "form_summary", required: true
+            .field
+              = c.label :review, "レビュー"
+              %br
+              = c.text_area :review, class: "form_review", required: true, placeholder: "3つ程おすすめポイントをお書きください"
+          .actions
+            = a.submit "投稿する", class: "form_submit"
