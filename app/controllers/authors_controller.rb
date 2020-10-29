@@ -5,6 +5,11 @@ class AuthorsController < ApplicationController
     @authors = Author.all
     @comics = Comic.all.page(params[:page]).per(15)
     @comic = Comic.order(created_at: :desc).limit(5)
+    @comic_one = Comic.find(3)
+    @comic_two = Comic.find(4)
+    @comic_three = Comic.find(5)
+    @comic_four = Comic.find(6)
+    @comic_five = Comic.find(7)
   end
 
   def new

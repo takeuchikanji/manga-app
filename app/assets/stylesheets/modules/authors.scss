@@ -158,6 +158,9 @@
     padding: 30px 0;
     border: solid 2px #e2dfdf;
     border-radius: 3px;
+    .display_hide {        //仮置き  画像の非表示コーーど
+      display: none;
+    }
     &__title {
       font-size: 20px;
       margin-bottom: 10px;

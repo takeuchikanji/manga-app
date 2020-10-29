@@ -2,22 +2,33 @@
   .side__up
     .side__up__title 
       %span 管理者のオススメ
-    = link_to image_tag(src= "/assets/orange.jpg", class: "side__up__image"), "#"
+    %ul.slide_show-box
+      %li.slide__image{data: { index: 0 }}
+        = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), "#"
+        -# = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), author_path(id: @comic_one)
+      %li.slide__image.display_hide{data: { index: 1 }}
+        = link_to image_tag(@comic_two.image.url, class: "side__up__image", id: "slideshow_two"), author_path(id: @comic_two)
+      %li.slide__image.display_hide{data: { index: 2 }}
+        = link_to image_tag(@comic_three.image.url, class: "side__up__image", id: "slideshow_three"), author_path(id: @comic_three)
+      %li.slide__image.display_hide{data: { index: 3 }}
+        = link_to image_tag(@comic_four.image.url, class: "side__up__image", id: "slideshow_four"), author_path(id: @comic_four)
+      %li.slide__image.display_hide{data: { index: 4 }}
+        = link_to image_tag(@comic_five.image.url, class: "side__up__image", id: "slideshow_five"), author_path(id: @comic_five)
     %ul.side__up__list
       %li.side__up__list__btn
-        = link_to "#" do
+        %div{data: { index: 0 }}
           = icon("far", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        = link_to "#" do
+        %div{data: { index: 1 }}
           = icon("far", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        = link_to "#" do
+        %div{data: { index: 2 }}
           = icon("far", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        = link_to "#" do
+        %div{data: { index: 3 }}
           = icon("far", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        = link_to "#" do
+        %div{data: { index: 4 }}
           = icon("far", "circle", class: "circle__btn")
   .side__under
     %p
