@@ -43,10 +43,10 @@
             .field
               = c.label :summary, "あらすじ"
               %br
-              = c.text_area :summary, class: "form_textarea", required: true
+              = c.text_area :summary, class: "form_summary", required: true
             .field
               = c.label :review, "レビュー"
               %br
-              = c.text_area :review, class: "form_textarea", required: true, placeholder: "3つ程おすすめポイントをお書きください"
+              = c.text_area :review, class: "form_review", required: true, placeholder: "3つ程おすすめポイントをお書きください"
           .actions
             = a.submit "投稿する", class: "form_submit"

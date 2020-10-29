@@ -354,10 +354,16 @@
           border-radius: 30px;
           background-color: blanchedalmond;
         }
+        &__root:hover {
+          opacity: 0.6;
+        }
         &__edit-delete {
           margin-top: 50px;
           display: flex;
           justify-content: space-around;
+          a:hover {
+            opacity: 0.6;
+          }
           .show__edit-btn {
             background-color: lightblue;
             height: 30px;
@@ -379,6 +385,7 @@
     }
   }
 }
+
 
 
 // 作品投稿のCSS（authors/new）
@@ -412,6 +419,25 @@
       margin: 0 auto;
       padding: 40px 0;
       background-color: white;
+
+      .comic__delete__field {
+        margin: 30px auto 0;
+        width: 320px;
+        text-align: center;
+        background-color: #caccca;
+        cursor: pointer;
+        .comic__delete__btn {
+          width: 320px;
+          height: 40px;
+          line-height: 40px;
+          border: none;
+          text-decoration: none;
+          color: black;
+        }
+      }
+      .comic__delete__field:hover {
+        opacity: 0.6;
+      }
     }
     h2 {
       color: #93e093;
@@ -456,14 +482,25 @@
           border: solid 1px #c7e9d5;
           box-shadow: inset 0 0 5px #71dd9e;
         }
-        .form_textarea {
+        .form_summary {
           width: 580px;
-          height: 160px;
+          height: 200px;
           padding: 15px;
           outline: none;
           resize: none;
         }
-        .form_textarea:focus {
+        .form_review {
+          width: 580px;
+          height: 130px;
+          padding: 15px;
+          outline: none;
+          resize: none;
+        }
+        .form_summary:focus {
+          border: solid 1px #c7e9d5;
+          box-shadow: inset 0 0 5px #71dd9e;
+        }
+        .form_review:focus {
           border: solid 1px #c7e9d5;
           box-shadow: inset 0 0 5px #71dd9e;
         }
@@ -529,6 +566,9 @@
           cursor: pointer;
           outline: none;
         }
+      }
+      .actions:hover {
+        opacity: 0.6;
       }
     }
   }
