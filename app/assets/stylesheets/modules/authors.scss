@@ -106,7 +106,9 @@
       }
       .inactive__btn:hover {
         opacity: 0.5;
-        background-color: rgb(160, 233, 196);
+      }
+      a:hover {
+        color: lightcoral;
       }
       .active__btn {
         background-color: white;
@@ -152,14 +154,27 @@
   margin-left: 30px;
   width: 30%;
   &__up {
-    height: 50vh;
+    height: 430px;
     text-align: center;
     background-color: white;
     padding: 30px 0;
     border: solid 2px #e2dfdf;
     border-radius: 3px;
-    .display_hide {        //仮置き  画像の非表示コーーど
-      display: none;
+    position: relative;
+    .slide_show-box {
+      width: 210px;
+      margin: 0 auto;
+      position: relative;
+      .slide__image {
+        position: absolute;   //画像を同じ位置に表示したいのでこれで同じ位置にしてる（これしないと下に下に出てしまう）
+      }
+    }
+    .display_hide {        // 画像の非表示コーーど
+      opacity: 0;
+      transition: .7s;
+    }
+    .show {         // 画像の対象を表示コーーど
+      opacity: 1;
     }
     &__title {
       font-size: 20px;
@@ -177,10 +192,23 @@
     &__list {
       display: flex;
       justify-content: center;
+      position: absolute;   //ここからポジションで左右中央にするコード
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       &__btn{
         margin-left: 5px;
         .circle__btn {
-          color: red;
+          color: lightgrey;
+          cursor: pointer;
+        }
+        .circle__btn:hover {
+          opacity: 0.7;
+        }
+        .circle__active {
+          color: rgb(163, 236, 176);
         }
       }
     }

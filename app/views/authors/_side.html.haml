@@ -4,8 +4,7 @@
       %span 管理者のオススメ
     %ul.slide_show-box
       %li.slide__image{data: { index: 0 }}
-        = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), "#"
-        -# = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), author_path(id: @comic_one)
+        = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), author_path(id: @comic_one)
       %li.slide__image.display_hide{data: { index: 1 }}
         = link_to image_tag(@comic_two.image.url, class: "side__up__image", id: "slideshow_two"), author_path(id: @comic_two)
       %li.slide__image.display_hide{data: { index: 2 }}
@@ -16,20 +15,20 @@
         = link_to image_tag(@comic_five.image.url, class: "side__up__image", id: "slideshow_five"), author_path(id: @comic_five)
     %ul.side__up__list
       %li.side__up__list__btn
-        %div{data: { index: 0 }}
-          = icon("far", "circle", class: "circle__btn")
+        .circle__btn-box{data: { index: 0 }}
+          = icon("fas", "circle", class: "circle__btn circle__active")
       %li.side__up__list__btn
-        %div{data: { index: 1 }}
-          = icon("far", "circle", class: "circle__btn")
+        .circle__btn-box{data: { index: 1 }}
+          = icon("fas", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        %div{data: { index: 2 }}
-          = icon("far", "circle", class: "circle__btn")
+        .circle__btn-box{data: { index: 2 }}
+          = icon("fas", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        %div{data: { index: 3 }}
-          = icon("far", "circle", class: "circle__btn")
+        .circle__btn-box{data: { index: 3 }}
+          = icon("fas", "circle", class: "circle__btn")
       %li.side__up__list__btn
-        %div{data: { index: 4 }}
-          = icon("far", "circle", class: "circle__btn")
+        .circle__btn-box{data: { index: 4 }}
+          = icon("fas", "circle", class: "circle__btn")
   .side__under
     %p
       %span お知らせ
