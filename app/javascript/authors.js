@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', ()=> {
+$(window).on('load', ()=> {
 
   function buildImg(url) {
     const html = `<div class="previews__field">
