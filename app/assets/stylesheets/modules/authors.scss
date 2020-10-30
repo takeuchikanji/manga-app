@@ -17,6 +17,84 @@
 // ヘッダーのCSS
 .header {
   height: auto;
+  #menu {
+    width: 310px;
+    height: 100vh;
+    border-left: solid 1px silver;
+    padding-top: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    transform: translateX(300px); /* right0から250px移動した位置 */
+    transition: all .5s; /* 移動する速さ */
+    .peke {
+      position: absolute;
+      top: 0;
+      left: -45px;
+      .peke_mark {      //バッテンアイコン
+        color: rgb(82, 85, 82);
+        font-size: 50px;
+        cursor: pointer;
+      }
+    }
+    .peke-none {
+      display: none;
+    }
+    ul {
+      border-top: solid 1px silver;
+      .menu_list {
+        border-bottom: solid 1px silver;
+        padding: 15px;
+        position: relative;
+        a:hover {
+          color: lightcoral;
+        }
+        .maru_btn {           // 画面右の丸btn
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #b6bdb2;
+          border: solid 1px rgb(190, 184, 184);
+          left: -5px;
+          top: 50%;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+        }
+        .maru_btn.open {
+          border: solid 1px black;
+          background-color: black;
+          width: 15px;
+          height: 3px;
+        }
+      }
+    }
+  }
+  #menu.open {
+    transform: translateX(0); /* right0まで-250px移動 */
+    background-color: #e0ecd9;
+    border: none;
+  }
+  .menu-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    opacity: 0; /* 透明度を0にすることで隠す */
+    transition: opacity 0.5s; /* 透明度の0→1になる速度 */
+  }
+  .menu-background.open {
+    width: 100%;
+    height: 100%;
+    opacity: 1; /* メニューが表示されているときには背景が表示 */
+  }
   &__up {
     display: flex;
     align-items: flex-end;
@@ -50,6 +128,18 @@
         }
         .btn:hover {
           color: lightcoral;
+        }
+        .current__user__name {
+          line-height: 30px;
+          margin-right: 20px;
+        }
+        .current__user__name:hover {
+          color: lightcoral;
+          cursor: pointer;
+        }
+        .three_bars {
+          font-size: 28px;
+          cursor: pointer;
         }
       }
     }
