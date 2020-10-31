@@ -86,7 +86,7 @@
     width: 0;
     height: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    z-index: 3;
     opacity: 0; /* 透明度を0にすることで隠す */
     transition: opacity 0.5s; /* 透明度の0→1になる速度 */
   }
@@ -265,6 +265,7 @@
     }
     .show {         // 画像の対象を表示コーーど
       opacity: 1;
+      z-index: 2;
     }
     &__title {
       font-size: 20px;
