@@ -10,4 +10,7 @@ class Comic < ApplicationRecord
   validates :review, presence: true
 
   mount_uploader :image, ImageUploader
+
+  has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
 end
