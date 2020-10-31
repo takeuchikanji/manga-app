@@ -1,0 +1,57 @@
+.wrapper
+  = render 'authors/header'
+  .top-show
+    .main-show
+      .main-show__box
+        %h3
+          <<　作 品 情 報　>>
+        .comic_container
+          .comic_container__box
+            #bookmark{ id: @comic.id }
+              = render partial: "bookmarks/bookmark", locals: { comic: @comic }
+        .main-show__box__up
+          .show__image
+            - if @comic.image?
+              = image_tag @comic.image.url
+            - else
+              = icon('fas', 'image', class: 'photo-icon')
+          .show__info
+            .show__info__comicName
+              %span.infoTitle 作品名　：
+              %span.blueColor
+                = @comic.name
+            .show__info__authorName
+              %span.infoTitle 作者名　：
+              %span.blueColor
+                = @author.name
+            .show__info__bookNumber
+              %span.infoTitle 既刊　　：
+              %span.blueColor
+                = @comic.number_of_books
+              %span.infoTitle 巻
+              %span.redColor （完結作品）
+              -# %span 未完結作品  ココif文で場合分けした（activehash)
+            .show__info__genre
+              %span.infoTitle ジャンル：
+              %span.blueColor
+                = @comic.genres.pluck(:genre).join("　")
+        .show__summary
+          %span あらすじ
+          %div
+            = @comic.summary
+        .show__review
+          %span 管理者から一言
+          .show__review__box
+            .show__review__box__icon
+              = icon('fas', 'user-graduate', class: 'admin-icon')
+            .show__review__box__comment= @comic.review      ##ココは改行せず1行で書いてる（改行して下にreviewを書くと改行した分がブラウザにも反映されて思う表示にならない..試しに改行してみると理解できる
+        .show__btn
+          = link_to root_path do
+            .show__btn__root
+              トップページに戻る
+          - if user_signed_in? && current_user.admin?
+            .show__btn__edit-delete
+              = link_to edit_author_path(@author.id) do
+                .show__edit-btn 編集ボタン
+              = link_to author_path(@author.id), method: :delete do
+                .show__delete-btn 削除ボタン

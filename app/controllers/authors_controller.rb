@@ -34,10 +34,10 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def show
-    @author = Author.find(params[:id])
-    @comic = Comic.find(params[:id])
-  end
+  # def show
+  #   @author = Author.find(params[:id])
+  #   @comic = Comic.find(params[:id])
+  # end
 
   def destroy
     author = Author.find(params[:id])

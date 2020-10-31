@@ -11,7 +11,7 @@
       %ul.display__list
         - @comics.each do |comic|
           %li.comic-box
-            = link_to author_path(comic.author.id), class: "comic-box__link" do
+            = link_to comic_path(comic.id), class: "comic-box__link" do
               .comic-box__data
                 %p 
                   = comic.name

@@ -30,7 +30,7 @@
             %p アカウント編集
         %li.menu_list
           .maru_btn
-          = link_to "#" do
+          = link_to user_showbookmark_path(@comic, id: current_user) do
             %p ブックマーク一覧
         - if user_signed_in? && current_user.admin?
           %li.menu_list
