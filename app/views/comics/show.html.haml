@@ -5,6 +5,10 @@
       .main-show__box
         %h3
           <<　作 品 情 報　>>
+        .comic_container
+          .comic_container__box
+            #bookmark{ id: @comic.id }
+              = render partial: "bookmarks/bookmark", locals: { comic: @comic }
         .main-show__box__up
           .show__image
             - if @comic.image?
@@ -12,10 +16,6 @@
             - else
               = icon('fas', 'image', class: 'photo-icon')
           .show__info
-            .comic_container
-              .comic_container__box
-                #bookmark{ id: @comic.id }
-                  = render partial: "bookmarks/bookmark", locals: { comic: @comic }
             .show__info__comicName
               %span.infoTitle 作品名　：
               %span.blueColor

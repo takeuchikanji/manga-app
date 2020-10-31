@@ -348,6 +348,54 @@
     margin: 0 auto;
 
     &__box {
+      position: relative;
+      .comic_container {    //bookmarkアイコン周りのCSS
+        position: absolute;
+        right: 0px;
+        top: -1px;
+        .i {
+          position: relative;
+          border-radius: 5px;
+          font-weight: bold;
+          height: 36px;
+          padding-right: 3px;
+          .bookmark-n {
+            margin-left: 30px;
+          }
+          .bookmark_icon {
+            position: absolute;
+            font-size: 25px;
+            top: 4px;
+            left: 3px;
+          }
+          .star_icon {
+            position: absolute;
+            top: 7px;
+            left: 6px;
+            font-size: 11px;
+          }
+          .star_yellow {
+            color: yellow;
+          }
+          .bookmark__count {
+            font-size: 10px;
+            position: absolute;
+            right: 30px;
+            bottom: 0px;
+          }
+        }
+        .bookmark-off {
+          color: #e2dfdf;
+          border: solid 1px #e2dfdf;
+        }
+        .bookmark-on {
+          background-color: lightgreen;
+          color: white;
+          .star_yellow {
+            color: yellow;
+          }
+        }
+      }
       h3 {
         text-align: center;
         font-size: 20px;
@@ -357,66 +405,16 @@
       }
       &__up {
         display: flex;
-
         .show__image {
           img {
             width: 250px;
             height: 400px;
             object-fit: scale-down;
-            // border: dashed 1px rgb(243, 240, 240);
           }
         }
         .show__info {
           max-width: 520px;
           padding: 40px 0 40px 40px;
-          position: relative; //bookmarkの位置調整のため
-          .comic_container {    //bookmarkアイコン周りのCSS
-            position: absolute;
-            right: -230px;
-            top: -1px;
-            .i {
-              position: relative;
-              border-radius: 5px;
-              font-weight: bold;
-              height: 36px;
-              padding-right: 3px;
-              .bookmark-n {
-                margin-left: 30px;
-              }
-              .bookmark_icon {
-                position: absolute;
-                font-size: 25px;
-                top: 4px;
-                left: 3px;
-              }
-              .star_icon {
-                position: absolute;
-                top: 7px;
-                left: 6px;
-                font-size: 11px;
-              }
-              .star_yellow {
-                color: yellow;
-              }
-              .bookmark__count {
-                font-size: 10px;
-                position: absolute;
-                right: 30px;
-                bottom: 0px;
-              }
-            }
-            .bookmark-off {
-              color: #e2dfdf;
-              border: solid 1px #e2dfdf;
-            }
-            .bookmark-on {
-              background-color: lightgreen;
-              color: white;
-              .star_yellow {
-                color: yellow;
-              }
-            }
-          }
           .infoTitle {
             font-size: 16px;
           }
