@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   has_many :bookmarks, dependent: :destroy
   has_many :comics, through: :bookmarks
+
+  has_many :comments, dependent: :destroy
 end

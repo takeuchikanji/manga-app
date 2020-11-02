@@ -9,6 +9,11 @@
           .comic_container__box
             #bookmark{ id: @comic.id }
               = render partial: "bookmarks/bookmark", locals: { comic: @comic }
+        .comment_container
+          = link_to comic_comments_path(@comic.id) do
+            .comment_container__box
+              = icon("far","comment-dots")
+              コメント
         .main-show__box__up
           .show__image
             - if @comic.image?

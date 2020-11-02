@@ -1,0 +1,122 @@
+.wrapper__bookmark {
+  display: block;
+  background-color: #f5f5f5;
+  height: auto;
+  min-height: 100vh;
+  padding: 30px 0;
+
+  .header__user {
+    text-align: center;
+    .app-title__box {
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+      a {
+        padding: 20px;
+        background-color: #71dd9e;
+        border-radius: 50px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .display__comment {
+    background-color: white;
+    height: 670px;
+    padding: 40px 40px;
+    margin: 40px auto 0;
+    width: 1000px;
+    display: flex;
+
+    &__left {
+      width: 400px;
+      padding: 20px 30px 20px 10px;
+      p {
+        font-size: 30px;
+        color: #1a73e8;
+        padding-left: 30px;
+      }
+      .comment__image {
+        margin: 30px;
+        img {
+          width: 220px;
+          height: 300px;
+          object-fit: scale-down;
+          border: dashed 1px silver;
+        }
+      }
+    }
+    &__right {
+      width: calc(100% - 400px);
+      .comment__right-box {
+        height: 100%;
+        p {
+          font-size: 20px;
+          color: #93e093;
+        }
+        .comment-box {
+          height: 100%;
+          border: solid 8px #f5f5f5;
+          .comments__up {
+            background-color: white;
+            max-height: 500px;
+            height: 500px;
+            overflow: auto;
+            // padding: 0 15px;
+            .comment-info {
+              height: auto;
+              margin-bottom: 5px;
+              border-bottom: solid 1px #f5f5f5;
+              padding: 6px 15px;
+              .comment__name__time {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                .comment__name {
+                  font-size: 14px;
+                }
+                .comment__time {
+                  color: silver;
+                  font-size: 12px;
+                }
+              }
+              .comment__text {
+                white-space: pre-wrap;
+              }
+            }
+          }
+          .comments__under {
+            position: relative;
+            height: calc(100% - 500px);
+            background-color: #f5f5f5;
+            padding-top: 20px;
+            textarea {
+              resize: none;
+              width: 400px;
+              height: 40px;
+              outline: none;
+              // line-height: 38px;
+              padding: 7px 15px;
+            }
+            .send-btn {
+              display: inline;
+              position: absolute;
+              right: 8px;
+              top: 25px;
+              
+              .send__comment {
+                width: 80px;
+                height: 30px;
+                border: none;
+                border-radius: 10px;
+                background-color: lightgreen;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

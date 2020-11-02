@@ -350,6 +350,18 @@
 
     &__box {
       position: relative;
+      .comment_container {
+        position: absolute;
+        right: 0;
+        top: 40px;
+        border: solid 1px lightgreen;
+        border-radius: 5px;
+        padding: 5px 20px;
+        width: 130px;
+        &__box {
+          color: lightgreen;
+        }
+      }
       .comic_container {    //bookmarkアイコン周りのCSS
         position: absolute;
         right: 0px;
@@ -391,6 +403,7 @@
         }
         .bookmark-on {
           background-color: lightgreen;
+          border: solid 1px lightgreen;
           color: white;
           .star_yellow {
             color: yellow;

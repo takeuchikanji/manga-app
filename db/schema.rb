@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_015133) do
+ActiveRecord::Schema.define(version: 2020_11_02_051017) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2020_10_31_015133) do
     t.index ["author_id"], name: "index_comics_on_author_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.bigint "user_id"
+    t.bigint "comic_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comic_id"], name: "index_comments_on_comic_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "genre", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -75,4 +85,6 @@ ActiveRecord::Schema.define(version: 2020_10_31_015133) do
   add_foreign_key "comic_genres", "comics"
   add_foreign_key "comic_genres", "genres"
   add_foreign_key "comics", "authors"
+  add_foreign_key "comments", "comics"
+  add_foreign_key "comments", "users"
 end
