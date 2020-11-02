@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(comment){
-    let html = `<div class="comment-info">
+    let html = `<div class="comment-info" data-index="${comment.comment_id}">
                   <div class="comment__name__time">
                     <div class="comment__name">
                       ${comment.user_name}
@@ -10,6 +10,11 @@ $(function(){
                     </div>
                   </div>
                   <div class="comment__text">${comment.text}</div>
+                  <div class="comment__delete">
+                    <a data-remote="true" rel="nofollow" data-method="delete" href="/comics/${comment.comic_id}/comments/${comment.comment_id}"
+                      <i class="fas fa-trash-alt trash-icon"></i>
+                    </a>
+                  </div>
                 </div>`
     return html;
   }

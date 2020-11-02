@@ -8,10 +8,20 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.create(comment_params)
-    respond_to do |format|
-      format.html { redirect_to item_path(params[:comic_id])  }
-      format.json
+    if signed_in?
+      @comment = Comment.create(comment_params)
+      respond_to do |format|
+        format.html { redirect_to item_path(params[:comic_id])  }
+        format.json
+      end
+    end
+  end
+
+  def destroy
+    @comment_id = Comment.find(params[:id])
+    if signed_in? && @comment_id.user_id == current_user.id
+      @comment = @comic.comments.find(params[:id])
+      @comment.destroy
     end
   end
 

@@ -84,6 +84,12 @@
               .comment__text {
                 white-space: pre-wrap;
               }
+              .comment__delete {
+                text-align: right;
+                .trash-icon {
+                  color: silver;
+                }
+              }
             }
           }
           .comments__under {
@@ -112,6 +118,13 @@
                 border-radius: 10px;
                 background-color: lightgreen;
                 cursor: pointer;
+              }
+            }
+            .comment-notice {
+              text-align: center;
+              a {
+                color: #1a73e8;
+                text-decoration: none;
               }
             }
           }
