@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'search'
     end
     resource :bookmarks, only: [:create, :destroy]
+    resources :comments, only: [:index, :create, :destroy]
   end
   resources :genres, only: [:new, :create]
   resources :authors

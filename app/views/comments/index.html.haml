@@ -1,0 +1,42 @@
+.wrapper__bookmark
+
+  .header__user
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+
+  .display__comment
+    .display__comment__left
+      %p=@comic.name
+      .comment__image
+        = image_tag @comic.image.url
+    %section.display__comment__right
+      %h2.comment__right-box
+        %p コメント一覧
+        .comment-box
+          .comments__up
+            .comments__list
+              - if @comments
+                - @comments.each do |comment|
+                  .comment-info{data: {index: comment.id}}
+                    .comment__name__time
+                      .comment__name
+                        = comment.user.name
+                      .comment__time
+                        = comment.created_at.strftime("%y.%m.%d %H:%M")
+                    .comment__text=comment.text
+                    .comment__delete
+                      = link_to icon('fas', 'trash-alt', class: "trash-icon"), comic_comment_path(@comic, comment),method: :delete, remote: true
+          .comments__under
+            - if current_user
+              = form_with(model: [@comic, @comment], local: true, id: "new_comment") do |form|
+                = form.text_area :text, rows: "2", class: "textbox", required: true
+                .send-btn
+                  = form.submit "投稿", class: "send__comment"
+            - else
+              .container-header
+                .comment-notice 
+                  ※※ コメントの投稿には
+                  =link_to "新規登録", new_user_registration_path, class: "comment_bule"
+                  ／
+                  =link_to "ログイン", new_user_session_path, class: "comment_bule"
+                  が必要です ※※
