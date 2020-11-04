@@ -6,11 +6,11 @@ class ComicsController < ApplicationController
     @genres = Genre.all
     @comics = @q.result(distinct: true)
     @comic = Comic.order(created_at: :desc).limit(5)
-    @comic_one = Comic.find(3)
-    @comic_two = Comic.find(4)
-    @comic_three = Comic.find(5)
-    @comic_four = Comic.find(6)
-    @comic_five = Comic.find(7)
+    @comic_one = Comic.find(1)
+    @comic_two = Comic.find(2)
+    @comic_three = Comic.find(3)
+    @comic_four = Comic.find(4)
+    @comic_five = Comic.find(5)
   end
 
   def new
@@ -37,11 +37,11 @@ class ComicsController < ApplicationController
     @comics_count = @q.result(distinct: true)
     @comic = Comic.order(created_at: :desc).limit(5)
     @comics = @comics.page(params[:page]).per(10)
-    @comic_one = Comic.find(3)
-    @comic_two = Comic.find(4)
-    @comic_three = Comic.find(5)
-    @comic_four = Comic.find(6)
-    @comic_five = Comic.find(7)
+    @comic_one = Comic.find(1)
+    @comic_two = Comic.find(2)
+    @comic_three = Comic.find(3)
+    @comic_four = Comic.find(4)
+    @comic_five = Comic.find(5)
   end
 
   private
