@@ -688,6 +688,15 @@
         .form_image {
           display: none;
         }
+        // チェックボックスのデザイン
+        .checkboxes {
+          display: flex;
+          flex-wrap: wrap;
+          .box {
+            min-width: 170px;
+            margin-bottom: 5px;
+          }
+        }
         .preview {
           margin-top: 20px;
           .previews__field {

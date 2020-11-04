@@ -30,12 +30,16 @@
               = c.label :number_of_books, "ジャンル"
               %span （複数選択可）
               %br
-              = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre
+              .checkboxes
+                = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre do |d|
+                  .box
+                    = d.check_box
+                    = d.label { d.text }
               %br
             .field
               = c.label :number_of_books, "画像"
               %span （表紙など作品がわかる画像を選択ください）
-              = c.file_field :image, class: "form_image", required: true
+              = c.file_field :image, class: "form_image"
               %br
               .preview
                 .previews__field

@@ -30,7 +30,11 @@
               = c.label :number_of_books, "ジャンル"
               %span （複数選択可）
               %br
-              = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre
+              .checkboxes
+                = c.collection_check_boxes :genre_ids, Genre.all, :id, :genre do |d|
+                  .box
+                    = d.check_box
+                    = d.label { d.text }
               %br
             .field
               = c.label :number_of_books, "画像"
