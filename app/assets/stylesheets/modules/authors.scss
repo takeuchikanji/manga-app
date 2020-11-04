@@ -457,6 +457,19 @@
           &__genre {
             font-size: 20px;
             margin-bottom: 20px;
+            display: flex;
+            .infoTitle {
+              min-width: 80px;
+            }
+            .blueColor {
+              min-width: 400px;
+              display: flex;
+              flex-wrap: wrap;
+              .genre_single {
+                min-width: 100px;
+                margin: 0 25px 5px 0;
+              }
+            }
           }
         }
       }
