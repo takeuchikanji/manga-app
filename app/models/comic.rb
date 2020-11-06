@@ -1,4 +1,7 @@
 class Comic < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :booknumber
+  
   belongs_to :author
   has_many :comic_genres, dependent: :destroy
   has_many :genres, through: :comic_genres

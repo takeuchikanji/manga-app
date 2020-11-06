@@ -27,8 +27,8 @@ class ComicsController < ApplicationController
   end
 
   def show
-    @author = Author.find(params[:id])
     @comic = Comic.find(params[:id])
+    @author = Author.find(@comic.author.id)
     @comic_genre = @comic.genres.pluck(:genre)
   end
 

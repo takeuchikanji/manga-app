@@ -18,13 +18,17 @@ class AuthorsController < ApplicationController
   end
 
   def create
+    # cities = Author.find_or_initialize_by(name: params[:name]) 
+    # if cities.new_record? # 新規データなら保存
+    #   cities.save!
+    # end
     @author = Author.create(author_params)
     redirect_to root_path
   end
 
   def edit
     @author = Author.find(params[:id])
-    @comic = Comic.find(params[:id])
+    @comic = Comic.find_by(name: params[:format])
   end
 
   def update
@@ -53,10 +57,10 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, genre_ids: []])
+    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []])
   end
 
   def update_author_params
-    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, {genre_ids: []}, :_destroy, :id])
+    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, {genre_ids: []}, :_destroy, :id])
   end
 end
