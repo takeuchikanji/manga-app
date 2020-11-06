@@ -63,5 +63,5 @@
             .show__btn__edit-delete
               = link_to edit_author_path(@author.id, @comic.name) do
                 .show__edit-btn 編集ボタン
-              = link_to author_path(@author.id), method: :delete do
+              = link_to author_path(@author.id, @comic.name), method: :delete do
                 .show__delete-btn 削除ボタン

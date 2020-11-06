@@ -15,7 +15,8 @@
             %br
             = a.text_field :name, class: "form_default", required: true, placeholder: "例）河島正 × あだちとか"
             %br
-          = a.fields_for :comics do |c|
+          -# = a.fields_for :comics do |c|
+          = a.fields_for(@comic) do |c|
             .field
               = c.label :name, "作品名"
               %br
@@ -59,6 +60,7 @@
               = c.label :review, "レビュー"
               %br
               = c.text_area :review, class: "form_review", required: true, placeholder: "3つ程おすすめポイントをお書きください"
+              = c.number_field :id, class: "form_id_get"           ##追加しした！！！！！！！！idを指定して、このidを指定して取得
           .actions
             = a.submit "更新する", class: "form_submit"
       .comic__delete__field

@@ -6,7 +6,7 @@ class AuthorsController < ApplicationController
     @comics = Comic.all.page(params[:page]).per(15)
     @comic = Comic.order(created_at: :desc).limit(5)
     @comic_one = Comic.find(1)
-    @comic_two = Comic.find(2)
+    @comic_two = Comic.find(7)
     @comic_three = Comic.find(3)
     @comic_four = Comic.find(4)
     @comic_five = Comic.find(5)
@@ -18,11 +18,20 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    # cities = Author.find_or_initialize_by(name: params[:name]) 
-    # if cities.new_record? # 新規データなら保存
-    #   cities.save!
-    # end
-    @author = Author.create(author_params)
+    @author = Author.where(name: author_params[:name]).first_or_initialize
+    if @author.new_record?
+      @author.save
+    end
+    # binding.pry
+    # @author = Author.create(author_params)
+    # @author = Author.new(author_params)       ##ここでauthorを代入したい
+    # binding.pry
+    # @author = author.id
+    # @author.save
+    
+    # binding.pry
+    comic = Comic.new(comic_params)
+    comic.save!
     redirect_to root_path
   end
 
@@ -32,27 +41,44 @@ class AuthorsController < ApplicationController
   end
 
   def update
-    @author = Author.find(params[:id])
-    if @author.update(update_author_params)
-      redirect_to root_path
+    @author = Author.find(params[:id])        ##作者取得
+    @comic = Comic.find_by(name: params[:format])     ##作者の作品のうち対応する作品を取得
+    if @author.name == author_params[:name]     ##作者名変更しなかったらtrue       ＜＜＜＜＜＜＜＜＜更新できてない動いてない＞＞＞＞＞＞＞＞
+      @author.save          ##作者名以外をaccept~で更新
+    else                        ##作者名を変更したときの処理
+      @author_db_find = Author.where(name: author_params[:name]).first_or_initialize    ##再度、変更した作者がDBないにあるかどうか探す
+      if @author_db_find.new_record?                         ##もし、なければauthorの新しいレコードを作成
+        @author_db_find.save            ##諸々変更を保存
+        @comic = Comic.find(params.require(:author).require(:comic).require(:id))
+        @comic.update(update_comic_params)
+      else                            ##変更した作者名がすでにDBにあればこっち
+        if @author.comics.length == 1      ##対象の作者の作品がラスト１だったら、作者を削除
+          @author.comics.each do |comic|    ##削除するが、この記述(reloadまで)しておかないと、モデルに書いているdependent: :destroyによって作品ごと削除してしまう
+            comic.author = nil
+            @author_db_find.comics << comic
+          end
+          @author.reload
+          @author.destroy
+        else      ####対象の作者の作品が2つ以上残っている
+          @comic = Comic.find(params.require(:author).require(:comic).require(:id))
+          @comic.update(update_comic_params)
+        end
+      end
     end
-  end
 
-  # def show
-  #   @author = Author.find(params[:id])
-  #   @comic = Comic.find(params[:id])
-  # end
-
-  def destroy
-    author = Author.find(params[:id])
-    author.destroy
     redirect_to root_path
   end
 
-  # def search
-  #   @q = Author.ransack(params[:q])
-  #   @authors = @q.result(distinct: true)
-  # end
+  def destroy
+    author = Author.find(params[:id])
+    if author.comics.length == 1
+      author.destroy
+    else
+      comic = Comic.find_by(name: params[:format])
+      comic.destroy
+    end
+    redirect_to root_path
+  end
 
   private
 
@@ -62,5 +88,13 @@ class AuthorsController < ApplicationController
 
   def update_author_params
     params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, {genre_ids: []}, :_destroy, :id])
+  end
+
+  def comic_params
+    params.require(:author).require(:comics_attributes).require("0").permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []).merge(author_id: @author.id)
+  end
+
+  def update_comic_params     ##accept~使わず@comicでfield_forをした
+    params.require(:author).require(:comic).permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []).merge(author_id: @author_db_find.id)
   end
 end
