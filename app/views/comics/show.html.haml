@@ -37,9 +37,11 @@
               %span.redColor （完結作品）
               -# %span 未完結作品  ココif文で場合分けした（activehash)
             .show__info__genre
-              %span.infoTitle ジャンル：
-              %span.blueColor
-                = @comic.genres.pluck(:genre).join("　")
+              .infoTitle ジャンル：
+              .blueColor
+                - @comic_genre.each do |genre|
+                  .genre_single
+                    = genre
         .show__summary
           %span あらすじ
           %div

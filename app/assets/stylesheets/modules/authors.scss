@@ -457,6 +457,19 @@
           &__genre {
             font-size: 20px;
             margin-bottom: 20px;
+            display: flex;
+            .infoTitle {
+              min-width: 80px;
+            }
+            .blueColor {
+              min-width: 400px;
+              display: flex;
+              flex-wrap: wrap;
+              .genre_single {
+                min-width: 100px;
+                margin: 0 25px 5px 0;
+              }
+            }
           }
         }
       }
@@ -687,6 +700,15 @@
         }
         .form_image {
           display: none;
+        }
+        // チェックボックスのデザイン
+        .checkboxes {
+          display: flex;
+          flex-wrap: wrap;
+          .box {
+            min-width: 170px;
+            margin-bottom: 5px;
+          }
         }
         .preview {
           margin-top: 20px;
