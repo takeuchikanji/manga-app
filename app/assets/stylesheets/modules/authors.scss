@@ -676,6 +676,16 @@
           border: solid 1px #c7e9d5;
           box-shadow: inset 0 0 5px #71dd9e;
         }
+        .form_booknumber {
+          width: 400px;
+          height: 40px;
+          padding: 10px;
+          outline: none;
+        }
+        .form_booknumber:focus {
+          border: solid 1px #c7e9d5;
+          box-shadow: inset 0 0 5px #71dd9e;
+        }
         .form_summary {
           width: 580px;
           height: 200px;
@@ -699,6 +709,9 @@
           box-shadow: inset 0 0 5px #71dd9e;
         }
         .form_image {
+          display: none;
+        }
+        .form_id_get {
           display: none;
         }
         // チェックボックスのデザイン

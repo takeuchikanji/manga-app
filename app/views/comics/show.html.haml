@@ -34,8 +34,11 @@
               %span.blueColor
                 = @comic.number_of_books
               %span.infoTitle 巻
-              %span.redColor （完結作品）
-              -# %span 未完結作品  ココif文で場合分けした（activehash)
+              %span.redColor
+                - if @comic.booknumber.id == 1
+                  （未完結作品）
+                - else @comic.booknumber.id == 2
+                  （完結作品）
             .show__info__genre
               .infoTitle ジャンル：
               .blueColor
@@ -58,7 +61,7 @@
               トップページに戻る
           - if user_signed_in? && current_user.admin?
             .show__btn__edit-delete
-              = link_to edit_author_path(@author.id) do
+              = link_to edit_author_path(@author.id, @comic.name) do
                 .show__edit-btn 編集ボタン
-              = link_to author_path(@author.id), method: :delete do
+              = link_to author_path(@author.id, @comic.name), method: :delete do
                 .show__delete-btn 削除ボタン

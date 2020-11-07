@@ -28,12 +28,21 @@ $(window).on('load', ()=> {
     }
   });
 
-  $('.field').on('click', '.edit', function() {
+  $('.field').on('click', '.edit', function() {       //newアクションのときは、こっちの編集が動く => idががnewとeditアクションで違った（おそらくaccept~~を使っているかどうかで違うみたい）
     $(`input[id="author_comics_attributes_0_image"]`).on('click', function(e){
       e.stopPropagation();
     });
 
     $(`input[id="author_comics_attributes_0_image"]`).trigger('click');
+
+  });
+
+  $('.field').on('click', '.edit', function() {       //newアクションのときは、こっちの編集が動く 
+    $(`input[id="author_comics_attributes_0_image"]`).on('click', function(e){
+      e.stopPropagation();
+    });
+
+    $(`input[id="author_comic_image"]`).trigger('click');
 
   });
 });

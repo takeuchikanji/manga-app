@@ -15,7 +15,8 @@
             %br
             = a.text_field :name, class: "form_default", required: true, placeholder: "例）河島正 × あだちとか"
             %br
-          = a.fields_for :comics do |c|
+          -# 19行目でモデルを指定、newの時はcomicsになっていると思う、acceptを使わない書き方になるのかな？？
+          = a.fields_for(@comic) do |c|
             .field
               = c.label :name, "作品名"
               %br
@@ -25,6 +26,11 @@
               = c.label :number_of_books, "巻数"
               %br
               = c.number_field :number_of_books, class: "form_number", required: true
+              %br
+            .field
+              = c.label :number_of_books, "完結/未完結"
+              %br
+              = c.collection_select :booknumber_id, Booknumber.all, :id, :name, {include_blank: "選択してください"}, required: true, class: "form_booknumber"
               %br
             .field
               = c.label :number_of_books, "ジャンル"
@@ -54,6 +60,7 @@
               = c.label :review, "レビュー"
               %br
               = c.text_area :review, class: "form_review", required: true, placeholder: "3つ程おすすめポイントをお書きください"
+              = c.number_field :id, class: "form_id_get"           ##追加しした！！！！！！！！idを指定して、このidを指定して取得
           .actions
             = a.submit "更新する", class: "form_submit"
       .comic__delete__field

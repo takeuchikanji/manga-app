@@ -27,6 +27,11 @@
               = c.number_field :number_of_books, class: "form_number", required: true
               %br
             .field
+              = c.label :number_of_books, "完結/未完結"
+              %br
+              = c.collection_select :booknumber_id, Booknumber.all, :id, :name, {include_blank: "選択してください"}, required: true, class: "form_booknumber"
+              %br
+            .field
               = c.label :number_of_books, "ジャンル"
               %span （複数選択可）
               %br
