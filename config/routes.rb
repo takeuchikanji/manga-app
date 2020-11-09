@@ -7,10 +7,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   get '/users', to: redirect("/users/sign_up")    ##新規登録時renderでパスが/usersになるので、そこでリロードしたときにエラーが出てしまう（それ防止のためにリダイレクトさせる）
-  root "authors#index"
+  root "comics#recommend"
   resources :comics, only: [:index, :new, :create, :show] do
     collection do
       get 'search'
+      get 'recommend'
     end
     resource :bookmarks, only: [:create, :destroy]
     resources :comments, only: [:index, :create, :destroy]

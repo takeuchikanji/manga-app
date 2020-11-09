@@ -45,6 +45,18 @@ class ComicsController < ApplicationController
     @comic_five = Comic.find(5)
   end
 
+  def recommend
+    @authors = Author.all
+    # @comics = Comic.all.page(params[:page]).per(10)   ##ページネーション
+    @comic = Comic.order(created_at: :desc).limit(5)    ##サイドバーの登録最新から5件取得
+    @comics_recommend = Comic.where(recommend_id: 1).page(params[:page]).per(10)    ##おすすめ作品を取得、ページネーションを10作品ごと
+    @comic_one = Comic.find(1)
+    @comic_two = Comic.find(7)
+    @comic_three = Comic.find(3)
+    @comic_four = Comic.find(4)
+    @comic_five = Comic.find(5)
+  end
+
   private
 
   def comic_params
