@@ -85,22 +85,22 @@ class AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []])
+    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, :recommend_id, genre_ids: []])
   end
 
   def update_author_params
-    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, {genre_ids: []}, :_destroy, :id])
+    params.require(:author).permit(:name, comics_attributes: [:name, :image, :number_of_books, :summary, :review, :booknumber_id, :recommend_id, {genre_ids: []}, :_destroy, :id])
   end
 
   def comic_params
-    params.require(:author).require(:comics_attributes).require("0").permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []).merge(author_id: @author.id)
+    params.require(:author).require(:comics_attributes).require("0").permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, :recommend_id, genre_ids: []).merge(author_id: @author.id)
   end
 
   def update_author_comic_params     ##元の作者変更しなかった場合こっち（変更前の作者idをmarge）
-    params.require(:author).require(:comic).permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []).merge(author_id: @author.id)
+    params.require(:author).require(:comic).permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, :recommend_id, genre_ids: []).merge(author_id: @author.id)
   end
 
   def update_author_db_find_comic_params     ##元の作者から変更した場合こっち（変更後の作者idをmarge）
-    params.require(:author).require(:comic).permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, genre_ids: []).merge(author_id: @author_db_find.id)
+    params.require(:author).require(:comic).permit(:name, :image, :number_of_books, :summary, :review, :booknumber_id, :recommend_id, genre_ids: []).merge(author_id: @author_db_find.id)
   end
 end

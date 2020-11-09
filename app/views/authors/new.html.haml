@@ -32,6 +32,11 @@
               = c.collection_select :booknumber_id, Booknumber.all, :id, :name, {include_blank: "選択してください"}, required: true, class: "form_booknumber"
               %br
             .field
+              = c.label :number_of_books, "管理者のおすすめに入れる"
+              %br
+              = c.collection_select :recommend_id, Recommend.all, :id, :name, {include_blank: "選択してください"}, required: true, class: "form_booknumber"
+              %br
+            .field
               = c.label :number_of_books, "ジャンル"
               %span （複数選択可）
               %br
