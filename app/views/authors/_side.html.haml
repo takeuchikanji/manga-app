@@ -1,7 +1,7 @@
 .side 
   .side__up
     .side__up__title 
-      %span 管理者のオススメ
+      %span 今月のオススメ
     %ul.slide_show-box
       - if @comic.present?      ##DBにデータがない場合は表示しない（これしないとエラー出る→→→この下もコメントアウトにしないとだめだった（DBある判定で下表示になるが、まだ１個しかなかったら結局エラー出てしまう
         %li.slide__image.show{data: { index: 0 }}

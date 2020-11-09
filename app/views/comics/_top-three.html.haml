@@ -2,21 +2,22 @@
   .main
     .select
       %ul.select__list
-        %li.list__type.inactive__btn
-          = link_to "おすすめ", recommend_comics_path
+        %li.list__type.active__btn
+          = link_to "おすすめ", comics_path
         %li.list__type.inactive__btn
           = link_to "一覧", authors_path
-        %li.list__type.active__btn
+        %li.list__type.inactive__btn
           = link_to "検索", comics_path
+    
     .display__search
       .search-result__box
-        %p.search-result 検索結果
-        - if @comics.present?
+        %p.search-result 管理者のおすすめ作品
+        - if @comics_recommend.present?
           %ul.display__list
-            %p.search-result__count
-              = "#{@comics_count.count}件見つかりました"
+            -# %p.search-result__count
+              -# = "#{@comics_count.count}件見つかりました"
             .comics-box__list
-              - @comics.each do |comic|
+              - @comics_recommend.each do |comic|
                 %li.comic-box__result
                   .up-left
                   .under-right
@@ -34,8 +35,8 @@
                     .comic-box__result__summary
                       = comic.summary
             %p.displayed__results
-              = "#{@comics_count.count}件中、#{@comics.count}件表示しています"
+              -# = "#{@comics_count.count}件中、#{@comics.count}件表示しています"
         - else
           %p.no__search-result 条件に一致する作品はありません
-        = paginate @comics
+        = paginate @comics_recommend
   = render "authors/side"

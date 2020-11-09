@@ -12,7 +12,7 @@ class Ability
         can :access, :rails_admin
         can :manage, :all
       else
-        can [:index, :show, :search], [Author, Comic]
+        can [:index, :show, :search, :recommend], [Author, Comic]   ##管理者以外に許可するアクション
       end
     #
     # The first argument to `can` is the action you are giving the user
