@@ -1,5 +1,4 @@
 class ComicsController < ApplicationController
-  load_and_authorize_resource
 
   def index
     @q = Comic.ransack(params[:q])
