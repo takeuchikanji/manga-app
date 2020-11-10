@@ -22,6 +22,11 @@
               = c.text_field :name, class: "form_default", required: true, placeholder: "例）アライブ 最終進化的少年"
               %br
             .field
+              = c.label :name_kana, "読み方"
+              %br
+              = c.text_field :name_kana, class: "form_default", required: true, placeholder: "例）あらいぶさいしゅうしんかてきしょうねん"
+              %br
+            .field
               = c.label :number_of_books, "巻数"
               %br
               = c.number_field :number_of_books, class: "form_number", required: true
