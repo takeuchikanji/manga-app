@@ -9,6 +9,7 @@ class Comic < ApplicationRecord
   accepts_nested_attributes_for :comic_genres
 
   validates :name, presence: true
+  validates :image, presence: true
   validates :number_of_books, presence: true
   validates :summary, presence: true
   validates :review, presence: true
