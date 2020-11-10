@@ -13,6 +13,7 @@ class Comic < ApplicationRecord
   validates :number_of_books, presence: true
   validates :summary, presence: true
   validates :review, presence: true
+  validates :name_kana, presence: true
 
   mount_uploader :image, ImageUploader
 

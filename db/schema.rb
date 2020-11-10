@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_021553) do
+ActiveRecord::Schema.define(version: 2020_11_10_054826) do
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_021553) do
     t.bigint "author_id"
     t.integer "booknumber_id", null: false
     t.integer "recommend_id", null: false
+    t.string "name_kana", null: false
     t.index ["author_id"], name: "index_comics_on_author_id"
   end
 
