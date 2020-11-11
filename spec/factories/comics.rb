@@ -5,10 +5,8 @@ FactoryBot.define do
     image {File.open("#{Rails.root}/public/images/pose_ng_man.png")}
     number_of_books {Faker::Number.between(from: 1, to: 100)}
     summary {"むかしむかし、あるところに"}
-    review {"予想外の展開"}
-
+    review {"衝撃の展開"}
     author
-    booknumber
-    recommend
+    
   end
 end
