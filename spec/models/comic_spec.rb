@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Comic, type: :model do
 
   describe "comic登録機能テスト" do
     before do   ##予め、設定しておく

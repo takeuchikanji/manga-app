@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe Author, type: :model do
 
   describe "作者名の登録機能テスト" do
     before do   ##予め、設定しておく
@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
         expect(@author.errors.full_messages).to include("Nameを入力してください")
       end
     end
-    
+
   end
 
 end
