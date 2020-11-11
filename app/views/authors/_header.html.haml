@@ -12,8 +12,12 @@
         - else
           %li
             = link_to "ログイン", new_user_session_path, class: "login-btn btn"
-          %li
+          %li.new-btn__box
             = link_to "新規登録", new_user_registration_path, class: "new-btn btn"
+            .sign-up__merit 
+              ユーザー登録をすることで
+              %br
+              ブックマーク機能、コメント機能を利用できます
         
 
   .header__under
