@@ -4,8 +4,8 @@ RSpec.describe User, type: :model do
   
   describe "ユーザーの新規登録機能" do
     before do   ##予め、設定しておく
-      @resistrated_user = create(:user)   ##ユーザー作成
-      @user = build(:user)        ##2人目
+      @resistrated_user = create(:user)   ##予め、ユーザーを作っておく（被りのテストで使う）
+      @user = build(:user)        ##新規ユーザー作成
     end
 
     describe "ユーザー登録成功（正常系）" do
