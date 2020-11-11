@@ -38,4 +38,4 @@
         %li.side__under__list__notice
         .notice__date
           = l comic.created_at, format: :veryshort
-        = link_to "#{comic.name}を追加しました", author_path(comic.author.id)
+        = link_to "#{comic.name}を追加しました", comic_path(comic.id)

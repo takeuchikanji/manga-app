@@ -12,18 +12,18 @@ class ComicsController < ApplicationController
     @comic_five = Comic.find(5)
   end
 
-  def new
-    @comic = Comic.new
-  end
+  # def new
+  #   @comic = Comic.new
+  # end
 
-  def create
-    @comic = Comic.new(comic_params)
-    if @comic.save
-      redirect_to root_path, notice: "投稿を完了しました"
-    else
-      render :new
-    end
-  end
+  # def create
+  #   @comic = Comic.new(comic_params)
+  #   if @comic.save
+  #     redirect_to root_path, notice: "投稿を完了しました"
+  #   else
+  #     render :new
+  #   end
+  # end
 
   def show
     @comic = Comic.find(params[:id])
