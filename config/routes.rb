@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'bookmarks/create'
   get 'bookmarks/destroy'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
