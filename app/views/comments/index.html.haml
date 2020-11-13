@@ -24,8 +24,9 @@
                       .comment__time
                         = comment.created_at.strftime("%y.%m.%d %H:%M")
                     .comment__text=comment.text
-                    .comment__delete
-                      = link_to icon('fas', 'trash-alt', class: "trash-icon"), comic_comment_path(@comic, comment),method: :delete, remote: true
+                    - if comment.user_id == current_user.id
+                      .comment__delete
+                        = link_to icon('fas', 'trash-alt', class: "trash-icon"), comic_comment_path(@comic, comment),method: :delete, remote: true
           .comments__under
             - if current_user
               = form_with(model: [@comic, @comment], local: true, id: "new_comment") do |form|
