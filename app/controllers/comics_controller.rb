@@ -5,11 +5,11 @@ class ComicsController < ApplicationController
     @genres = Genre.all
     @comics = @q.result(distinct: true)
     @comic = Comic.order(created_at: :desc).limit(5)
-    @comic_one = Comic.find(1)
-    @comic_two = Comic.find(7)
-    @comic_three = Comic.find(3)
-    @comic_four = Comic.find(4)
-    @comic_five = Comic.find(5)
+    @comic_one = Comic.find_by(id: 1)
+    @comic_two = Comic.find_by(id: 7)
+    @comic_three = Comic.find_by(id: 3)
+    @comic_four = Comic.find_by(id: 4)
+    @comic_five = Comic.find_by(id: 5)
   end
 
   # def new
@@ -37,11 +37,11 @@ class ComicsController < ApplicationController
     @comics_count = @q.result(distinct: true)
     @comic = Comic.order(created_at: :desc).limit(5)
     @comics = @comics.page(params[:page]).per(10)
-    @comic_one = Comic.find(1)
-    @comic_two = Comic.find(7)
-    @comic_three = Comic.find(3)
-    @comic_four = Comic.find(4)
-    @comic_five = Comic.find(5)
+    @comic_one = Comic.find_by(id: 1)
+    @comic_two = Comic.find_by(id: 7)
+    @comic_three = Comic.find_by(id: 3)
+    @comic_four = Comic.find_by(id: 4)
+    @comic_five = Comic.find_by(id: 5)
   end
 
   def recommend
@@ -49,11 +49,11 @@ class ComicsController < ApplicationController
     # @comics = Comic.all.page(params[:page]).per(10)   ##ページネーション
     @comic = Comic.order(created_at: :desc).limit(5)    ##サイドバーの登録最新から5件取得
     @comics_recommend = Comic.where(recommend_id: 1).page(params[:page]).per(10)    ##おすすめ作品を取得、ページネーションを10作品ごと
-    @comic_one = Comic.find(1)
-    @comic_two = Comic.find(7)
-    @comic_three = Comic.find(3)
-    @comic_four = Comic.find(4)
-    @comic_five = Comic.find(5)
+    @comic_one = Comic.find_by(id: 1)
+    @comic_two = Comic.find_by(id: 7)
+    @comic_three = Comic.find_by(id: 3)
+    @comic_four = Comic.find_by(id: 4)
+    @comic_five = Comic.find_by(id: 5)
   end
 
   private

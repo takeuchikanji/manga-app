@@ -3,15 +3,19 @@
     .side__up__title 
       %span 今月のオススメ
     %ul.slide_show-box
-      - if @comic.present?      ##DBにデータがない場合は表示しない（これしないとエラー出る→→→この下もコメントアウトにしないとだめだった（DBある判定で下表示になるが、まだ１個しかなかったら結局エラー出てしまう
+      - if @comic_one   ##DBにcomicのidがあれば表示、なければ(nilとなる)falseで非表示
         %li.slide__image.show{data: { index: 0 }}
           = link_to image_tag(@comic_one.image.url, class: "side__up__image", id: "slideshow_one"), comic_path(id: @comic_one)
+      - if @comic_two
         %li.slide__image.display_hide{data: { index: 1 }}
           = link_to image_tag(@comic_two.image.url, class: "side__up__image", id: "slideshow_two"), comic_path(id: @comic_two)
+      - if @comic_three
         %li.slide__image.display_hide{data: { index: 2 }}
           = link_to image_tag(@comic_three.image.url, class: "side__up__image", id: "slideshow_three"), comic_path(id: @comic_three)
+      - if @comic_four
         %li.slide__image.display_hide{data: { index: 3 }}
           = link_to image_tag(@comic_four.image.url, class: "side__up__image", id: "slideshow_four"), comic_path(id: @comic_four)
+      - if @comic_five
         %li.slide__image.display_hide{data: { index: 4 }}
           = link_to image_tag(@comic_five.image.url, class: "side__up__image", id: "slideshow_five"), comic_path(id: @comic_five)
     %ul.side__up__list
