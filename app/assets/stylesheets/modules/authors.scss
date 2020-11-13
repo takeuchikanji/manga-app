@@ -161,9 +161,14 @@
           line-height: 30px;
           margin-right: 20px;
         }
-        .three_bars {
-          font-size: 28px;
-          cursor: pointer;
+        #menu_btn {
+          margin-right: 8px;
+          .three_bars {
+            font-size: 28px;
+            cursor: pointer;
+            position: fixed;
+            margin-right: 30px;
+          }
         }
       }
     }
