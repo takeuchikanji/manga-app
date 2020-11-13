@@ -6,9 +6,10 @@
         %h3
           <<　作 品 情 報　>>
         .comic_container
-          .comic_container__box
-            #bookmark{ id: @comic.id }
-              = render partial: "bookmarks/bookmark", locals: { comic: @comic }
+          - if signed_in?
+            .comic_container__box
+              #bookmark{ id: @comic.id }
+                = render partial: "bookmarks/bookmark", locals: { comic: @comic }
         .comment_container
           = link_to comic_comments_path(@comic.id) do
             .comment_container__box
