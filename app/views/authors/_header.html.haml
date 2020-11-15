@@ -1,5 +1,8 @@
 .header 
   .header__up
+    %p.app-title__box
+      = link_to root_path, class: "app-title" do
+        Comic-Remember
     .header__up__left
       %span 管理者のおすすめ漫画の紹介、備忘録なアプリとなっています。コメントもご自由にお書きください。
     .header__up__right
@@ -21,10 +24,6 @@
         
 
   .header__under
-    %p.app-title__box
-      -# = image_tag "manga-app_logo.png", width: "50px", height: "50px"
-      = link_to root_path, class: "app-title" do
-        Manga-App
   - if user_signed_in?
     %nav#menu
       .peke.peke-none

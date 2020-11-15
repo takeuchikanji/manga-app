@@ -17,6 +17,17 @@
 // ヘッダーのCSS
 .header {
   height: auto;
+  .app-title__box {
+    margin-right: 10px;
+    .app-title {
+      padding: 10px;
+      border-radius: 50px;
+      color:  #71dd9e;
+      font-weight: bold;
+      font-size: 20px;
+      border: solid 2px #71dd9e;
+    }
+  }
   #menu {
     width: 310px;
     height: 100vh;
@@ -170,22 +181,6 @@
             margin-right: 30px;
           }
         }
-      }
-    }
-  }
-
-  &__under {
-    margin-top: 20px;
-    padding: 10px;
-    .app-title__box {
-      font-size: 50px;
-      font-weight: bold;
-      text-align: center;
-      a {
-        padding: 20px;
-        background-color: #71dd9e;
-        border-radius: 50px;
-        color: white;
       }
     }
   }
