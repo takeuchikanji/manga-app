@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'bookmarks/create'
   get 'bookmarks/destroy'
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  namespace :admin do
+    resources :users
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'

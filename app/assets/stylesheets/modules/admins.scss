@@ -1,0 +1,23 @@
+.admin__table {
+  border: double 5px #93e093;
+  margin-left: 100px;
+  width: 750px;
+  background-color: #f5f5f5;
+  tr {      //表の行
+    th {    //見出し
+      width: 250px;
+      padding: 10px;
+      border-bottom: solid 3px white;
+      border-left: solid 2px white;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    td {      //内容
+      padding: 10px;
+      border: solid 2px white;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}
