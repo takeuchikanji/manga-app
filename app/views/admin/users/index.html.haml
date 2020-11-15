@@ -1,0 +1,38 @@
+.wrapper__bookmark
+
+  .header__user
+    %p.app-title__box
+      = link_to "Manga-App", root_path, class: "app-title"
+
+  .display__bookmark
+    %section.search-result__box
+      %h2.search-result 管理者画面
+      %table.admin__table
+        %tr
+          %th モデル
+          %th 登録数
+          %th 最新更新日
+        %tr
+          %td 作品(Comic)
+          %td=@comics.length
+          %td
+            - @comic.each do |comic|
+              = l comic.created_at, format: :admintime
+        %tr
+          %td 作者(Author)
+          %td=@authors.length
+          %td
+            - @author.each do |author|
+              = l author.created_at, format: :admintime
+        %tr
+          %td ジャンル(Genre)
+          %td=@genres.length
+          %td
+            - @genre.each do |genre|
+              = l genre.created_at, format: :admintime
+        %tr
+          %td ユーザー(User)
+          %td=@users.length
+          %td
+            - @user.each do |user|
+              = l user.created_at, format: :admintime
