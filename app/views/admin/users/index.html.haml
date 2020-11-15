@@ -17,22 +17,22 @@
           %td=@comics.length
           %td
             - @comic.each do |comic|
-              = l comic.created_at, format: :admintime
+              = l comic.updated_at, format: :admintime
         %tr
           %td 作者(Author)
           %td=@authors.length
           %td
             - @author.each do |author|
-              = l author.created_at, format: :admintime
+              = l author.updated_at, format: :admintime
         %tr
           %td ジャンル(Genre)
           %td=@genres.length
           %td
             - @genre.each do |genre|
-              = l genre.created_at, format: :admintime
+              = l genre.updated_at, format: :admintime
         %tr
           %td ユーザー(User)
           %td=@users.length
           %td
             - @user.each do |user|
-              = l user.created_at, format: :admintime
+              = l user.updated_at, format: :admintime

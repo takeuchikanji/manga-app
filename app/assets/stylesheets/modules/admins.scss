@@ -3,8 +3,8 @@
   margin-left: 100px;
   width: 750px;
   background-color: #f5f5f5;
-  tr {
-    th {
+  tr {      //表の行
+    th {    //見出し
       width: 250px;
       padding: 10px;
       border-bottom: solid 3px white;
@@ -13,7 +13,7 @@
       font-size: 24px;
       font-weight: bold;
     }
-    td {
+    td {      //内容
       padding: 10px;
       border: solid 2px white;
       text-align: center;
