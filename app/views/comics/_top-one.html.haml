@@ -15,9 +15,13 @@
         %p 探したい条件で検索することができます
         = search_form_for @q, url: search_comics_path do |f|
           .search-box__word
-            = f.label :search, '作品名、作者名から探せます'
+            = f.label :search, '作品名から探せます'
             %br
-            = f.search_field :name_or_author_name_cont, placeholder: "(例)アライブ"
+            = f.search_field :name_or_name_kana_cont, placeholder: "(例)犬夜叉"
+          .search-box__word
+            = f.label :search, '作者名から探せます'
+            %br
+            = f.search_field :author_name_cont, placeholder: "(例)高橋留美子"
           .search-box__genre
             = f.label :genre_id_eq, 'ジャンル'
             %br
