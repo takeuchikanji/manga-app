@@ -3,20 +3,19 @@
     %ul.select__list
       %li.list__type.inactive__btn
         = link_to "おすすめ", recommend_comics_path
+      %li.list__type.inactive__btn
+        = link_to "作品一覧", comics_path
       %li.list__type.active__btn
-        = link_to "一覧", authors_path
+        = link_to "作者一覧", authors_path
       %li.list__type.inactive__btn
         = link_to "検索", searchscreen_comics_path
   .display
     .comics__all-box
       %p.comics__all 紹介作品一覧
       %ul.display__list
-        - @comics.each do |comic|
+        - @authors.each do |author|
           %li.comic-box
-            = link_to comic_path(comic.id), class: "comic-box__link" do
+            = link_to author_path(author), class: "comic-box__link" do
               .comic-box__data
                 %p 
-                  = comic.name
-                %p 
-                  = comic.author.name
-    = paginate @comics
+                  = author.name

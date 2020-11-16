@@ -38,7 +38,7 @@
     %p
       %span お知らせ
     %ul.side__under__list
-      - @comic.each do |comic|
+      - @comic_info.each do |comic|
         %li.side__under__list__notice
         .notice__date
           = l comic.created_at, format: :veryshort
