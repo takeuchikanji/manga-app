@@ -1,6 +1,15 @@
 class ComicsController < ApplicationController
 
   def index
+  end
+
+  def show
+    @comic = Comic.find(params[:id])
+    @author = Author.find(@comic.author.id)
+    @comic_genre = @comic.genres.pluck(:genre)
+  end
+
+  def searchscreen
     @q = Comic.ransack(params[:q])
     @genres = Genre.all
     @comics = @q.result(distinct: true)
@@ -10,25 +19,6 @@ class ComicsController < ApplicationController
     @comic_three = Comic.find_by(id: 3)
     @comic_four = Comic.find_by(id: 4)
     @comic_five = Comic.find_by(id: 5)
-  end
-
-  # def new
-  #   @comic = Comic.new
-  # end
-
-  # def create
-  #   @comic = Comic.new(comic_params)
-  #   if @comic.save
-  #     redirect_to root_path, notice: "投稿を完了しました"
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  def show
-    @comic = Comic.find(params[:id])
-    @author = Author.find(@comic.author.id)
-    @comic_genre = @comic.genres.pluck(:genre)
   end
 
   def search
