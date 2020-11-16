@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :comics, only: [:index, :new, :create, :show] do
     collection do
       get 'search'
+      get 'searchscreen'
       get 'recommend'
     end
     resource :bookmarks, only: [:create, :destroy]
