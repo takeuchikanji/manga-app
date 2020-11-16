@@ -15,7 +15,7 @@
             %br
             = a.text_field :name, class: "form_default", required: true, placeholder: "例）河島正 × あだちとか"
             %br
-          -# 19行目でモデルを指定、newの時はcomicsになっていると思う、acceptを使わない書き方になるのかな？？
+          -# 19行目fields_for(@comic)でモデルを指定、newの時はcomicsになっていると思う、acceptを使わない書き方になるのかな？？
           = a.fields_for(@comic) do |c|
             .field
               = c.label :name, "作品名"
