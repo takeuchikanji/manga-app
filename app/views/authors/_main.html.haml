@@ -11,11 +11,11 @@
         = link_to "検索", searchscreen_comics_path
   .display
     .comics__all-box
-      %p.comics__all 紹介作品一覧
+      %p.comics__all 作者一覧
       %ul.display__list
         - @authors.each do |author|
           %li.comic-box
             = link_to author_path(author), class: "comic-box__link" do
               .comic-box__data
-                %p 
-                  = author.name
+                = author.name
+                %p

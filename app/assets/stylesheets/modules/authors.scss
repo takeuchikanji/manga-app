@@ -218,16 +218,12 @@
         margin-left: 5px;
         a {
           font-size: 20px;
-          // font-weight: bold;
           text-decoration: none;
         }
       }
       .inactive__btn:hover {
         opacity: 0.8;
         background-color: white;
-      }
-      a:hover {
-        // color: lightcoral;
       }
       .active__btn {
         background-color: white;
@@ -252,7 +248,6 @@
           text-decoration: none;
           margin-bottom: 10px;
           padding: 5px;
-          // border-bottom: 1px solid lightgreen;
           max-width: 263px;
           min-width: 263px;
           &__link {
@@ -262,8 +257,8 @@
           &__data {
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
-            color: #1a73e8;
+            font-size: 16px;
+            border-bottom: dotted 1px #1a73e8;
           }
           .comic-box__data:hover {
             color: lightcoral;
