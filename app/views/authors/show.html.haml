@@ -1,0 +1,29 @@
+.wrapper__bookmark
+  -# ブックマーク一覧のデザインをそののまま使う
+  .header__user
+    %p.app-title__box
+      = link_to "Comic-Remember", root_path, class: "app-title"
+
+  .display__bookmark
+    %section.search-result__box
+      %h2.search-result
+        = @author.name
+        の作品一覧
+      %ul.display__list
+        .bookmark-box__list
+          - @author.comics.each do |comic|
+            %li.comic-box__result
+              .up-left
+              .under-right
+              = link_to comic_path(comic.id), class: "comic-box__link" do
+                .comic-box__result__data
+                  %p.comic__result__image
+                    = image_tag comic.image.url
+                  .comic__result__name__list
+                    %p.comic__result__name
+                      %span
+                        = comic.name
+                    %p.comic__result__author-name
+                      = comic.author.name
+                .comic-box__result__summary
+                  = comic.summary

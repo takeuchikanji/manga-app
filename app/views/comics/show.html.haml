@@ -29,7 +29,8 @@
             .show__info__authorName
               %span.infoTitle 作者名　：
               %span.blueColor
-                = @author.name
+                = link_to author_path(@author), class: "blueColor" do
+                  = @author.name
             .show__info__bookNumber
               %span.infoTitle 既刊　　：
               %span.blueColor
