@@ -260,6 +260,11 @@
         margin-bottom: 40px;
         padding-left: 50px;
       }
+      img {
+        width: 800px;
+        height: 400px;
+        object-fit: scale-down;
+      }
       .bookmark-box__list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);  // ブクマ画面はここで3つにしてる（検索結果は2つ

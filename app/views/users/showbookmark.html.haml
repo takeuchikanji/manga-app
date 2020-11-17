@@ -8,8 +8,8 @@
     %section.search-result__box
       %h2.search-result ブックマーク一覧
       %ul.display__list
-        .bookmark-box__list
-          - if @bookmark_list.present?
+        - if @bookmark_list.present?
+          .bookmark-box__list
             - @bookmark_list.each do |comic|
               %li.comic-box__result
                 .up-left
@@ -26,3 +26,7 @@
                         = comic.author.name
                   .comic-box__result__summary
                     = comic.summary
+        - else
+          ブックマークをしている作品はありません
+          %div
+            = image_tag "bookmark_notice.png"
