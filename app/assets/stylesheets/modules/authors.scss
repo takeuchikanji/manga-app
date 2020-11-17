@@ -530,7 +530,7 @@
               font-size: 50px;
             }
           }
-          &__comment {
+          &__comment {      //レビュー内容
             padding: 10px 20px;
             width: 500px;
             max-width: 500px;
@@ -538,6 +538,28 @@
             border: solid 3px #dbdbec;
             position: relative;
             z-index: 0;
+          }
+          &__comment.shadow {
+            color: rgba(0,0,0,0);
+            text-shadow: 0 0 10px #000;
+            opacity: 0.7;
+            cursor: pointer;
+          }
+          &__comment.shadow:before {
+            content: 'ネタバレあり ⇒ クリックで表示';
+            position: absolute;
+            text-shadow: none;
+            color: red;
+            font-size: 20px;
+            width: 300px;
+            height: 20px;
+            line-height: 20px;
+            left: 55%;
+            top: 50%;
+            text-align: center;
+            margin-left: -180px;
+            margin-top: -30px;
+            border-radius: 50px;
           }
           //擬似要素で吹出し再現
           &__comment:before {

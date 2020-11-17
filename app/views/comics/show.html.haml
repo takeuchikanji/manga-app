@@ -56,7 +56,7 @@
           .show__review__box
             .show__review__box__icon
               = icon('fas', 'user-graduate', class: 'admin-icon')
-            .show__review__box__comment= @comic.review      ##ココは改行せず1行で書いてる（改行して下にreviewを書くと改行した分がブラウザにも反映されて思う表示にならない..試しに改行してみると理解できる
+            .show__review__box__comment.shadow= @comic.review      ##ココは改行せず1行で書いてる（改行して下にreviewを書くと改行した分がブラウザにも反映されて思う表示にならない..試しに改行してみると理解できる
         .show__btn
           = link_to root_path do
             .show__btn__root
