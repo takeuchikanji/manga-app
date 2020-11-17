@@ -74,5 +74,7 @@
           .actions
             = a.submit "更新する", class: "form_submit"
       .comic__delete__field
-        = link_to  author_path(@author.id), method: :delete, class: "comic__delete__btn" do
-          .comic__delete__box 削除する
+        -# = link_to author_path(@author.id, @comic.name), method: :delete, class: "comic__delete__btn" do    こっち二重確認ないので、下で使う（一応残しておく）
+        -#   .comic__delete__box 削除する
+        #{button_to "削除する", author_path(@author.id, @comic.name), data: { confirm: "この作品を削除しますか？" }, method: :delete, class: "comic__delete__btn"}
+
