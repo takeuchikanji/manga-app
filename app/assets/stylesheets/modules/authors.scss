@@ -539,13 +539,13 @@
             position: relative;
             z-index: 0;
           }
-          &__comment.shadow {
+          &__comment.shadow {     //一言をネタバレなので、隠す（ぼかすCSS）
             color: rgba(0,0,0,0);
             text-shadow: 0 0 10px #000;
             opacity: 0.7;
             cursor: pointer;
           }
-          &__comment.shadow:before {
+          &__comment.shadow:before {    //ぼかした要素の上に文字を入れる
             content: 'ネタバレあり ⇒ クリックで表示';
             position: absolute;
             text-shadow: none;
