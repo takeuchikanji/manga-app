@@ -32,7 +32,7 @@ RSpec.describe "Users", type: :system do
         end
       end
 
-      context "フォームの入力値が異常（パスが空白）" do     ##空だととか一意性だとかは、単体テストチェックしたので、ここではエラーだった際に思い通りの挙動を取れるかをテスト
+      context "フォームの入力値が異常（パスワードが空白）" do     ##空だととか一意性だとかは、単体テストチェックしたので、ここではエラーだった際に思い通りの挙動を取れるかをテスト
         it "ユーザー新規作成失敗（異常系）" do
           visit new_user_registration_path
           fill_in "user_name", with: @user.name
