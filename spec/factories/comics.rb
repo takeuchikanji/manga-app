@@ -7,21 +7,9 @@ FactoryBot.define do
     summary {"むかしむかし、あるところに"}
     review {"衝撃の展開"}
 
-    booknumber_id {1}
+    booknumber_id {1}   ##ActiveHashの内容は、モデルで元々存在しているため、そのidを指定してあげるだけで値を渡すことができる
     recommend_id {1}
 
     author
-    
-
-    # trait :with_genres do       ## comic：genre = 多：多 
-    #   after(:create) do |comic|
-    #     create_list(:genre, 1, comics: [comic])
-    #   end
-    # end
-
-    # trait :abc do
-    #   booknumber_id {1}
-    #   recommend_id {1}
-    # end
   end
 end
