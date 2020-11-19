@@ -11,5 +11,12 @@ FactoryBot.define do
     recommend_id {1}
 
     author
+
+    trait :with_genre do    ##ジャンルを生成してcomicに関連付ける
+      after(:create) do |comic|
+        create_list(:genre, 1, comics: [comic])
+      end
+    end
+
   end
 end

@@ -93,8 +93,7 @@ RSpec.describe "Authors", type: :system do
         expect(page).to have_field "author_comics_attributes_0_review", with: @comic.review
 
       end
-    
     end
   end
-
+  
 end
