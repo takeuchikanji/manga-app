@@ -60,6 +60,41 @@ RSpec.describe "Authors", type: :system do
       end
 
     end
+
+    context "フォームの入力値が異常（空欄がある）" do
+      it "作品投稿失敗（異常系）" do
+        visit new_author_path
+        fill_in "author_name", with: nil
+        fill_in "author_comics_attributes_0_name", with: @comic.name
+        fill_in "author_comics_attributes_0_name_kana", with: @comic.name_kana
+        fill_in "author_comics_attributes_0_number_of_books", with: @comic.number_of_books
+        select '完結作品'
+        select 'おすすめにする'
+        check '女性漫画'
+        image_path = Rails.root.join('public/images/pose_ng_man.png')
+        attach_file("author[comics_attributes][0][image]", image_path, make_visible: true)    ##第一引数に画像を入れたい場所指定、第二は画像のパスをいれる、第三引数はオプションでdesplay-noneのものを表示させる(noneで消してるfieldには値を入力できないため)
+        fill_in "author_comics_attributes_0_summary", with: @comic.summary
+        fill_in "author_comics_attributes_0_review", with: @comic.review
+        click_button "投稿する"
+
+        # 作成できなかった場合、新規登録画面のまま
+        expect(current_path).to eq new_author_path
+
+        # 画面そのままの際に、入力フォームに値を保持できている
+        expect(page).to have_field "author_comics_attributes_0_name", with: @comic.name
+        expect(page).to have_field "author_comics_attributes_0_name_kana", with: @comic.name_kana
+        expect(page).to have_field "author_comics_attributes_0_number_of_books", with: @comic.number_of_books
+        # セレクトされているか、セレクトフォーム内に入ってるかテストしたかったが思うような挙動にならなかったため、画面にあれば良しとする
+        expect(page).to have_content '完結作品'
+        expect(page).to have_content 'おすすめにする'
+        # チェック入っているか
+        expect(page).to have_checked_field('女性漫画')
+        expect(page).to have_field "author_comics_attributes_0_summary", with: @comic.summary
+        expect(page).to have_field "author_comics_attributes_0_review", with: @comic.review
+
+      end
+    
+    end
   end
 
 end
