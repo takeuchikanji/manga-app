@@ -18,5 +18,9 @@ FactoryBot.define do
       end
     end
 
+    trait :comic_genre do     ##seedファイルからジャンルもってきて入れてる
+      after(:create){|comic| comic.genres << Genre.find(1)}
+    end
+
   end
 end
