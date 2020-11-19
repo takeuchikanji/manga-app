@@ -41,6 +41,40 @@ RSpec.describe "Authors", type: :system do
         
         expect(page).to have_field "author_comic_summary", with: @resistrated_comic.summary
         expect(page).to have_field "author_comic_review", with: @resistrated_comic.review
+
+
+        ## 中身を変更する
+
+        fill_in "author_name", with: "かきくけこ"
+        fill_in "author_comic_name", with: "漫画"
+        fill_in "author_comic_name_kana", with: "まんが"
+        fill_in "author_comic_number_of_books", with: "1"
+        fill_in "author_comic_summary", with: "あらすじ"
+        fill_in "author_comic_review", with: "レビュー"
+
+        select '完結作品', from: "author[comic][booknumber_id]"
+        select 'おすすめにしない', from: "author[comic][recommend_id]"
+        check '女性漫画'
+        image_path = Rails.root.join('public/images/yubibue_boy.png')
+        attach_file("author_comic_image", image_path, make_visible: true)
+
+        click_button "更新する"
+        expect(current_path).to eq root_path
+        expect(page).to have_content @resistrated_user.name
+
+
+        ## 作品詳細画面へ遷移して、変更されたか確認（詳細画面でわかる情報をチェック）
+
+        visit comic_path(@resistrated_comic)
+
+        expect(page).to have_content 'かきくけこ'
+        expect(page).to have_content '漫画'
+        expect(page).to have_content '1'
+        expect(page).to have_content 'あらすじ'
+        expect(page).to have_content 'レビュー'
+        expect(page).to have_content '完結作品'
+        expect(page).to have_content '女性漫画'
+        expect(page).to have_selector "img[src$='yubibue_boy.png']"
       end
     end
   end

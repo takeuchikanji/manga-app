@@ -32,10 +32,9 @@ RSpec.describe "Authors", type: :system do
 
         # ActiveHashの値は、元からあるため、それを選択する
         ## 未完結か完結か
-        select '完結作品'
+        select '未完結作品', from: "author[comics_attributes][0][booknumber_id]"
         ## 管理者のおすすめにするか
-        select 'おすすめにする'
-
+        select 'おすすめにする', from: "author[comics_attributes][0][recommend_id]"
         # seed.rbにジャンルは入れているので、テストでも本番と同じジャンルをチェックできる
         check '女性漫画'
 
@@ -68,8 +67,8 @@ RSpec.describe "Authors", type: :system do
         fill_in "author_comics_attributes_0_name", with: @comic.name
         fill_in "author_comics_attributes_0_name_kana", with: @comic.name_kana
         fill_in "author_comics_attributes_0_number_of_books", with: @comic.number_of_books
-        select '完結作品'
-        select 'おすすめにする'
+        select '未完結作品', from: "author[comics_attributes][0][booknumber_id]"
+        select 'おすすめにする', from: "author[comics_attributes][0][recommend_id]"
         check '女性漫画'
         image_path = Rails.root.join('public/images/pose_ng_man.png')
         attach_file("author[comics_attributes][0][image]", image_path, make_visible: true)    ##第一引数に画像を入れたい場所指定、第二は画像のパスをいれる、第三引数はオプションでdesplay-noneのものを表示させる(noneで消してるfieldには値を入力できないため)
