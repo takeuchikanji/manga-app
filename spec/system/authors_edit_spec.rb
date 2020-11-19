@@ -79,7 +79,21 @@ RSpec.describe "Authors", type: :system do
         end
       end
 
-      
+      context "作者名を変更" do
+        it "すでに作者2名(仮にA,Bとする)と漫画(a,b)登録済 => bの作者BをAに変更した際、BはDBから削除される" do
+          ## もう一人作者(B)用意する
+          @resistrated_comic_second = create(:comic, :with_genre)
+          visit edit_author_path(@resistrated_comic_second.author.id, @resistrated_comic_second.name)
+          expect(page).to have_field "author_name", with: @resistrated_comic_second.author.name
+          fill_in "author_name", with: @resistrated_comic.author.name
+          # click_button "更新する"
+
+          # 更新するとのBさんをDBから削除するので、authorの件数が1件減るテスト
+          expect {
+            click_button "更新する"
+          }.to change(Author, :count).by(-1)
+        end
+      end
     end
 
     describe "フォームの入力値が異常(空欄ある)" do
