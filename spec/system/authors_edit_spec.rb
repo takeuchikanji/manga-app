@@ -82,7 +82,7 @@ RSpec.describe "Authors", type: :system do
       context "作者名を変更" do
         it "すでに作者2名(仮にA,Bとする)と漫画(a,b)登録済 => bの作者BをAに変更した際、BはDBから削除される" do
           ## もう一人作者(B)用意する
-          @resistrated_comic_second = create(:comic, :with_genre)
+          @resistrated_comic_second = create(:comic, :comic_genre)
           visit edit_author_path(@resistrated_comic_second.author.id, @resistrated_comic_second.name)
           expect(page).to have_field "author_name", with: @resistrated_comic_second.author.name
           fill_in "author_name", with: @resistrated_comic.author.name
