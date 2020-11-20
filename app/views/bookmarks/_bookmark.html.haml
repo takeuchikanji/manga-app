@@ -1,5 +1,5 @@
 - if !Bookmark.exists?(user: current_user, comic_id: @comic.id)   # お気に入り未登録の時
-  = link_to comic_bookmarks_path(@comic), method: :post, remote: true, class: "bookmark-btn bookmark-post" do
+  = link_to comic_bookmarks_path(@comic), method: :post, remote: true, class: "bookmark-btn bookmark-post", id: "book_off" do
     .i.bookmark-off
       = icon('far','star', class: "star_icon")
       = icon("far", "bookmark", class: "bookmark_icon")
@@ -9,7 +9,7 @@
         %span.bookmark__count
           = @comic.bookmarks.length   # お気に入り登録数
 - else    # お気に入り登録済みの時
-  = link_to comic_bookmarks_path(@comic), method: :delete, remote: true, class: "bookmark-btn bookmark-delete" do
+  = link_to comic_bookmarks_path(@comic), method: :delete, remote: true, class: "bookmark-btn bookmark-delete", id: "book_on" do
     .i.bookmark-on
       = icon('fas','star', class: "star_icon star_yellow")
       = icon("far", "bookmark", class: "bookmark_icon")
