@@ -170,5 +170,26 @@ RSpec.describe "Users", type: :system do
       end
 
     end
+
+
+    describe "ユーザー情報削除" do
+      it "ユーザーを削除する" do
+        ## ログイン
+        visit new_user_session_path
+        fill_in "user_email", with: @resistrated_user.email
+        fill_in "user_password", with: @resistrated_user.password
+        click_button "ログインする"
+        ## 編集画面へ遷移
+        visit edit_user_registration_path
+        ## ユーザー削除
+        click_link "アカウントを削除する"     ## valueが"アカウントを削除する"のとこをクリック
+        expect {
+          page.accept_confirm "アカウントを削除しますか？"    ## ダイアログを許可する（引数にダイアログの内容を書く）
+          expect(page).to have_content "新規登録"
+        }.to change{ User.count }.by(-1)
+        expect(current_path).to eq root_path
+      end
+    
+    end
   end
 end
