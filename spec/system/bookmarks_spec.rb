@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Authors", type: :system do
+RSpec.describe "Bookmarks", type: :system do
   before do
     @resistrated_user = create(:user, admin: true)
     visit new_user_session_path
