@@ -2,15 +2,15 @@
   .main
     .select
       %ul.select__list
-        %li.list__type.inactive__btn
+        %li.list__type.recommend
           = link_to "おすすめ", recommend_comics_path
-        %li.list__type.inactive__btn
+        %li.list__type.comic
           = link_to "作品一覧", comics_path
-        %li.list__type.inactive__btn
+        %li.list__type.author
           = link_to "作者一覧", authors_path
-        %li.list__type.active__btn
+        %li.list__type.search
           = link_to "検索", searchscreen_comics_path
-    .display
+    .display.search
       .search-box
         %p 探したい条件で検索することができます
         = search_form_for @q, url: search_comics_path do |f|
