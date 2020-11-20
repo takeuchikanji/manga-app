@@ -198,7 +198,8 @@
 
 //トップ内の左のCSS
 .main {
-  background-color: #e2dfdf;
+  // background-color: #e2dfdf;
+  background-color: #f5f5f5;
   width: 70%;
   height: auto;
   margin-bottom: 40px;
@@ -220,22 +221,49 @@
           font-size: 20px;
           text-decoration: none;
         }
+        a:hover {
+          color: lightcoral;
+        }
       }
-      .inactive__btn:hover {
-        opacity: 0.8;
-        background-color: white;
+      .list__type.recommend {
+        background-color: #b2fff457;
       }
-      .active__btn {
-        background-color: white;
+      .list__type.comic {
+        background-color: #beccff9c;
       }
+      .list__type.author {
+        background-color: #ffc80036;
+      }
+      .list__type.search {
+        background-color: #ffc6c68a;
+      }
+      
+      // .inactive__btn:hover {
+      //   opacity: 0.8;
+      //   background-color: white;
+      // }
+      // .active__btn {
+      //   background-color: white;
+      // }
     }
+  }
+
+  .display.author {
+    // background-color: #ffc80036;
+    border: double 5px #ffc80036;
+  }
+  .display.search {
+    // background-color: #ffc6c68a;
+    border: double 5px #ffc6c68a;
   }
   .display {
     background-color: white;
+    border: double 5px #beccff9c;
+    // background-color: #beccff9c;
     height: calc(100% - 65px);
     padding: 40px 100px;
     .comics__all-box {
-      padding: 0 50px;
+      padding: 0 40px;
       .comics__all {
         font-size: 24px;
         color: rgb(147, 224, 147);
@@ -280,7 +308,7 @@
     text-align: center;
     background-color: white;
     padding: 30px 0;
-    border: solid 2px #e2dfdf;
+    border: double 5px #aee688a6;
     border-radius: 3px;
     position: relative;
     .slide_show-box {
@@ -343,7 +371,7 @@
     margin-top: 10px;
     padding: 40px;
     text-align: center;
-    border: solid 2px #e2dfdf;
+    border: double 5px #f597c03b;
     border-radius: 3px;
     p {
       font-size: 24px;
@@ -376,6 +404,7 @@
 
   .main-show {
     background-color: white;
+    border: double 5px #beccff9c;
     padding: 40px;
     width: 850px;
     margin: 0 auto;

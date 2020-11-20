@@ -91,9 +91,14 @@
 
 
 //検索結果のCSS
-
+.display__search.recommend {    //バックグラウンドカラーだけ変更したいので、recommendクラスも持たせて適用
+  // background-color: #b2fff457;
+  border: double 5px #b2fff457;
+}
 .display__search {
   background-color: white;
+  border: double 5px #ffc6c68a;
+  // background-color: #ffc6c68a;
   height: calc(100% - 65px);
   padding: 40px 40px;
 
@@ -141,24 +146,6 @@
             border-right: solid 1px rgb(187, 196, 187);
             border-bottom: solid 1px rgb(187, 196, 187);
           }
-          // .up-right {
-          //   width: 50px;
-          //   height: 100px;
-          //   position: absolute;
-          //   right: 0;
-          //   top: 0px;
-          //   border-right: solid 1px rgb(187, 196, 187);
-          //   border-top: solid 1px rgb(187, 196, 187);
-          // }
-          // .under-left {
-          //   width: 50px;
-          //   height: 100px;
-          //   position: absolute;
-          //   left: 0;
-          //   bottom: 20px;
-          //   border-left: solid 1px rgb(187, 196, 187);
-          //   border-bottom: solid 1px rgb(187, 196, 187);
-          // }
           &__data {
             display: flex;
             margin-bottom: 15px;
@@ -240,6 +227,7 @@
 
 .display__bookmark {
   background-color: white;
+  border: double 5px #ffc80036;
   height: auto;
   padding: 40px 40px;
   margin: 40px auto 0;
