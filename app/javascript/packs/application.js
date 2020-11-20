@@ -15,7 +15,7 @@ require('comment')
 require('review_hide.js')
 
 $(function(){
-  setTimeout("$('.Notification').fadeOut('slow')", 2000);
+  setTimeout("$('.Notification').fadeOut('slow')", 1000);
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference
