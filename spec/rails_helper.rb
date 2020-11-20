@@ -62,4 +62,10 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  config.before(:each) do |example|    ##ヘッドレスモード、system specを実行した際に毎回Chromeを起動してると重いし、時間もかかるため起動しないようにする
+    if example.metadata[:type] == :system
+      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
+    end
+  end
 end
