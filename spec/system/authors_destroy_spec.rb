@@ -27,6 +27,32 @@ RSpec.describe "Authors", type: :system do
     end
 
     context "2作品所持している作者を削除" do
+      # 作者Bが２作品(b,c)もっている際に、片方削除するとBとbは削除されずcのみ削除される
+      it "comicのみ1件削除される" do
+        ## とりあえずもう一人作者(C)マンガ(c)用意して、cの作者をBに変更させておく
+        @resistrated_comic_third = create(:comic, :comic_genre)
+        visit edit_author_path(@resistrated_comic_third.author.id, @resistrated_comic_third.name)
+        fill_in "author_name", with: @resistrated_comic_second.author.name
+        # click_button "更新する"（ちなみにここでCは削除される）
+        click_button "更新する"
+
+        # マンガcの編集画面へ
+        visit edit_author_path(@resistrated_comic_second.author.id, @resistrated_comic_third.name)
+        # 削除してDBのテストする（1作品のみテストとコード違うが、挙動は同じ=>別解としてこっちも使う）
+        click_link "削除する"     ## valueが"削除する"のとこをクリック
+        expect {
+          page.accept_confirm "この作品を削除しますか？"    ## ダイアログを許可する（引数にダイアログの内容を書く）
+          expect(page).to have_content @resistrated_user.name
+        }.to change{ Comic.count }.by(-1)
+
+        ### 作者は変更しなかったことをテストする
+        # expect {
+        #   page.accept_confirm "この作品を削除しますか？"
+        #   expect(page).to have_content @resistrated_user.name
+        # }.to change{ Author.count }.by(0)   ##AuthorとComicを同時に0と-1で確認する方法がわからないかったので、Comicだけテストした（上ｺﾒﾝﾄｱｳﾄ、こっちｺﾒ外したらAuthorのテストになる）
+
+        expect(current_path).to eq root_path
+      end
     end
   end
 
