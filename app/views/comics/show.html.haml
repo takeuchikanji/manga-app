@@ -2,6 +2,10 @@
   = render 'authors/header'
   .top-show
     .main-show
+      - if user_signed_in? && current_user.admin?
+        %p.comic__id
+          ID:
+          =@comic.id
       .main-show__box
         %h3
           <<　作 品 情 報　>>
