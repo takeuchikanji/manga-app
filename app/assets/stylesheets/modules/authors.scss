@@ -408,7 +408,12 @@
     padding: 40px;
     width: 850px;
     margin: 0 auto;
-
+    position: relative;
+    .comic__id {
+      position: absolute;
+      left: 20px;
+      top: 10px;
+    }
     &__box {
       position: relative;
       .comment_container {
