@@ -7,8 +7,8 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    @comic_four = Comic.find_by(id: 4)
-    @comic_five = Comic.find_by(id: 5)
+    # @comic_four = Comic.find_by(id: 4)
+    # @comic_five = Comic.find_by(id: 5)
   end
 
   def show
@@ -25,8 +25,8 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    @comic_four = Comic.find_by(id: 4)
-    @comic_five = Comic.find_by(id: 5)
+    # @comic_four = Comic.find_by(id: 4)
+    # @comic_five = Comic.find_by(id: 5)
   end
 
   def search      ##検索結果の画面c
@@ -38,8 +38,8 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    @comic_four = Comic.find_by(id: 4)
-    @comic_five = Comic.find_by(id: 5)
+    # @comic_four = Comic.find_by(id: 4)
+    # @comic_five = Comic.find_by(id: 5)
   end
 
   def recommend
@@ -50,8 +50,8 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    @comic_four = Comic.find_by(id: 4)
-    @comic_five = Comic.find_by(id: 5)
+    # @comic_four = Comic.find_by(id: 4)
+    # @comic_five = Comic.find_by(id: 5)
   end
 
   private

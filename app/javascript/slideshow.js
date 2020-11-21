@@ -13,7 +13,7 @@ $(window).on('load', ()=> {
     // 画像のスライドショー（タイマー単位はms）,演出はフェードインにする
     let num = 0;
     var slideshow_timer = function(){
-      if (num == 4){
+      if (num == 2){
           num = 0;
       }else {
           num ++;
