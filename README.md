@@ -3,14 +3,14 @@
 # Comic-Remember
 ====
 ## Overview
-Comic-Rememberは、Rubyで作成した自分の読んだ漫画を紹介するアプリケーションです。
-Comic-Remember is an application created in Ruby that introduces you to the comics you've read.
+* Comic-Rememberは、Rubyで作成した自分の読んだ漫画を紹介するアプリケーションです。
+* Comic-Remember is an application created in Ruby that introduces you to the comics you've read.
 
 ## Description
-漫画を読んでも、時間が経てば何を読んだか忘れることがあると思います。自分の読んだ作品を記録しておく備忘録としての役割があります。
-また、読んだ作品をウェブ上に公開することで、他の読者と感想を共有することもでき、利用者が読んでみたい、読み返してみたいと思えるようになっています。
-I think sometimes when you read a comic book, you forget what you read over time. It serves as a reminder to keep track of the works you read.
-Also, by posting the works you read on the web, you can share your impressions with other readers, so that they will want to read them and reread them.
+* 漫画を読んでも、時間が経てば何を読んだか忘れることがあると思います。自分の読んだ作品を記録しておく備忘録としての役割があります。
+* また、読んだ作品をウェブ上に公開することで、他の読者と感想を共有することもでき、利用者が読んでみたい、読み返してみたいと思えるようになっています。
+* I think sometimes when you read a comic book, you forget what you read over time. It serves as a reminder to keep track of the works you read.
+* Also, by posting the works you read on the web, you can share your impressions with other readers, so that they will want to read them and reread them.
 
 ## Feature
 * このアプリの主なターゲットユーザーは、定期的に漫画を読んでいる人です。
