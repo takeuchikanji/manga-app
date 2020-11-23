@@ -1,7 +1,6 @@
 class ComicsController < ApplicationController
 
   def index
-    # @comics = Comic.order("name_kana").page(params[:page]).per(15)
     @comics = Comic.order("name_kana")
     @comic_info = Comic.order(created_at: :desc).limit(5)
     @comic_one = Comic.find_by(id: 1)
@@ -48,7 +47,6 @@ class ComicsController < ApplicationController
 
   def recommend
     @authors = Author.all
-    # @comics = Comic.all.page(params[:page]).per(10)   ##ページネーション
     @comic_info = Comic.order(created_at: :desc).limit(5)    ##サイドバーの登録最新から5件取得
     @comics_recommend = Comic.where(recommend_id: 1).page(params[:page]).per(10)    ##おすすめ作品を取得、ページネーションを10作品ごと
     @comic_one = Comic.find_by(id: 1)

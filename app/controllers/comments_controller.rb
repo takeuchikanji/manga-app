@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :set_comic
 
   def index
-    # @comments = Comment.all
     @comment = Comment.new
     @comments = @comic.comments.includes(:user).order(created_at: :desc)
   end
