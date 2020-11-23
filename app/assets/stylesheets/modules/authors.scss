@@ -217,7 +217,6 @@
 
 //トップ内の左のCSS
 .main {
-  // background-color: #e2dfdf;
   background-color: #f5f5f5;
   width: 70%;
   height: auto;
@@ -256,29 +255,18 @@
       .list__type.search {
         background-color: #ffc6c68a;
       }
-      
-      // .inactive__btn:hover {
-      //   opacity: 0.8;
-      //   background-color: white;
-      // }
-      // .active__btn {
-      //   background-color: white;
-      // }
     }
   }
 
   .display.author {
-    // background-color: #ffc80036;
     border: double 5px #ffc80036;
   }
   .display.search {
-    // background-color: #ffc6c68a;
     border: double 5px #ffc6c68a;
   }
   .display {
     background-color: white;
     border: double 5px #beccff9c;
-    // background-color: #beccff9c;
     height: calc(100% - 65px);
     padding: 40px 100px;
     .comics__all-box {

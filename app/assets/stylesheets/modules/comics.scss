@@ -92,13 +92,11 @@
 
 //検索結果のCSS
 .display__search.recommend {    //バックグラウンドカラーだけ変更したいので、recommendクラスも持たせて適用
-  // background-color: #b2fff457;
   border: double 5px #b2fff457;
 }
 .display__search {
   background-color: white;
   border: double 5px #ffc6c68a;
-  // background-color: #ffc6c68a;
   height: calc(100% - 65px);
   padding: 40px 40px;
 
@@ -126,7 +124,6 @@
           width: 320px;
           height: 360px;
           padding: 10px;
-          // border: dashed 1px lightgray;
           position: relative;
           .up-left {
             width: 100px;
@@ -155,7 +152,6 @@
                 width: 120px;
                 height: 192px;
                 object-fit: scale-down;
-                // border: dashed 1px lawngreen;
               }
             }
             .comic__result__name__list {

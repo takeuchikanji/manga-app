@@ -23,37 +23,26 @@
 * Users can't post manga directly, but they can send the manga they want to be introduced to the administrator and request for introduction.
 
 ## Usage
-* 画面から直感的に使用できるようになっている。
-* トップページは以下のようになっており、作品をクリックすることで詳細画面へ遷移する。
-* ユーザー登録/ログインは画面右上から行うことができる。
-* It is intuitive and easy to use from the screen.
-* The top page looks like the following, and by clicking on the cartoon, you will move to the details screen.
-* User registration/login can be done from the top right corner of the screen.
-<img width="1392" alt="スクリーンショット 2020-11-22 10 48 30" src="https://user-images.githubusercontent.com/69382240/99891743-96c08e00-2cb0-11eb-8a76-1de21db3f49e.png">
-
-* タブを切替えることで、目的に応じて作品を確認できる。
-* By switching tabs, you can check the works according to the purpose.
-<img width="650" alt="スクリーンショット 2020-11-22 10 46 41" src="https://user-images.githubusercontent.com/69382240/99891806-4dbd0980-2cb1-11eb-83d1-3cd38a841ce5.png">
-
-* 検索機能も用意しており、条件に応じて検索が可能。
-* A search function is also available and allows you to search according to your criteria.
-<img width="845" alt="スクリーンショット 2020-11-22 10 58 38" src="https://user-images.githubusercontent.com/69382240/99891881-f8cdc300-2cb1-11eb-8c99-fde85ef05b19.png">
-
-* 作品詳細画面について
-* 作品情報の閲覧、ブックマーク、コメントの投稿が可能。
-* About the cartoon detail screen
-* You can view information about the work, bookmark it, and post comments.
-<img width="865" alt="スクリーンショット 2020-11-22 11 02 30" src="https://user-images.githubusercontent.com/69382240/99891907-4cd8a780-2cb2-11eb-90e2-3162601ca3bc.png">
-
-* 紹介してほしい作品を要望する機能
-* 要望フォームを用意しており、管理者に要望を送ることが可能。
-* The ability to request a work to be featured
-* We have a request form and you can send your request to the administrator.
-<img width="734" alt="スクリーンショット 2020-11-23 17 58 16" src="https://user-images.githubusercontent.com/69382240/99944173-c4dbc600-2db5-11eb-9709-cd5d692dae45.png">
-
-
-
-
+* 管理者専用の機能、登録ユーザーのみが利用できる機能、誰でも利用できる機能があります。管理者は全ての機能を使用可能。
+* 管理者専用機能
+  * 作品の投稿・編集・削除機能
+  * 管理者画面の使用
+* ログイン・サインアップ機能
+* 登録ユーザーの機能
+  * 作品のブックマーク機能
+  * 紹介してほしい作品を要望する機能
+* 誰でも利用可能な機能
+  * 作品検索機能
+* There are features for administrators only, features that are only available to registered users and features that can be used by anyone. Administrators can use all the features.
+* Administrator-Only Features
+  * Cartoon posting, editing, and deletion features
+  * Using the Admin Screen
+* Login and sign-up function
+* Features for registered users
+  * Cartoon bookmarking feature
+  * The ability to request a work to be featured
+* Features available to everyone
+  * Cartoon search function
 
 ## Ruby version
 * Ruby => version'2.6.5'
