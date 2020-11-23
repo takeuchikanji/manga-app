@@ -44,6 +44,10 @@
         - if user_signed_in? && current_user.admin?
           %li.menu_list
             .maru_btn
+            = link_to user_requests_path(current_user), class: "logout-btn btn" do
+              %p 要望一覧
+          %li.menu_list
+            .maru_btn
             = link_to new_author_path, class: "logout-btn btn" do
               %p 作品投稿
           %li.menu_list
