@@ -16,15 +16,11 @@
         %p.search-result 管理者のおすすめ作品
         - if @comics_recommend.present?
           %ul.display__list
-            -# %p.search-result__count
-              -# = "#{@comics_count.count}件見つかりました"
             .comics-box__list
               - @comics_recommend.each do |comic|
                 %li.comic-box__result
                   .up-left
                   .under-right
-                  -# .up-right
-                  -# .under-left
                   = link_to comic_path(comic.id), class: "comic-box__link" do
                     .comic-box__result__data
                       %p.comic__result__image
@@ -37,7 +33,6 @@
                     .comic-box__result__summary
                       = comic.summary
             %p.displayed__results
-              -# = "#{@comics_count.count}件中、#{@comics.count}件表示しています"
         - else
           %p.no__search-result 条件に一致する作品はありません
         = paginate @comics_recommend

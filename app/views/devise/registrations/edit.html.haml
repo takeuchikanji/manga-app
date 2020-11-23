@@ -37,7 +37,6 @@
           .actions
             = f.submit "変更する", class: "form_submit"
       .user__delete__field
-        -# #{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "user__delete__btn"}
         = link_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "アカウントを削除しますか？" }, method: :delete, class: "user__delete__btn" , id: "user_delete_button", value: "アカウントを削除する"
 
 
