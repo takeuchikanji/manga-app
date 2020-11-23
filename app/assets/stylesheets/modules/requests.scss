@@ -34,11 +34,26 @@
   min-height: 600px;
 
   .request__box {
-    .requests__all {
-      font-size: 28px;
-      color: rgb(147, 224, 147);
-      margin-bottom: 30px;
-      padding-left: 40px;
+    &__up {
+      display: flex;
+      justify-content: space-between;
+      .requests__all {
+        font-size: 28px;
+        color: rgb(147, 224, 147);
+        margin-bottom: 30px;
+        padding-left: 40px;
+      }
+      .request__delete {
+        a {
+          text-decoration: none;
+          color: black;
+          border: dotted 2px lightcoral;
+          padding: 5px;
+        }
+        a:hover {
+          color: lightcoral;
+        }
+      }
     }
 
     ul {
@@ -56,7 +71,7 @@
         }
       }
     }
-    .display__list {
+    .display__list {       //リクエスト詳細
       padding: 0 40px;
       .request__UserName {
         margin-bottom: 20px;
