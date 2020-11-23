@@ -29,14 +29,22 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-    @request = Request.find(params[:id])
-    if @request.destroy
+    if user_signed_in? && current_user.admin?
+      @request = Request.find(params[:id])
+      if @request.destroy
+        redirect_to root_path, notice: "削除しました"
+      end
+    else
       redirect_to root_path
     end
   end
 
   def show
-    @request = Request.find(params[:id])
+    if user_signed_in? && current_user.admin?
+      @request = Request.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
