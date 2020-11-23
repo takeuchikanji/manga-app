@@ -45,6 +45,13 @@
 * You can view information about the work, bookmark it, and post comments.
 <img width="865" alt="スクリーンショット 2020-11-22 11 02 30" src="https://user-images.githubusercontent.com/69382240/99891907-4cd8a780-2cb2-11eb-90e2-3162601ca3bc.png">
 
+* 紹介してほしい作品を要望する機能
+* 要望フォームを用意しており、管理者に要望を送ることが可能。
+* The ability to request a work to be featured
+* We have a request form and you can send your request to the administrator.
+<img width="734" alt="スクリーンショット 2020-11-23 17 58 16" src="https://user-images.githubusercontent.com/69382240/99944173-c4dbc600-2db5-11eb-9709-cd5d692dae45.png">
+
+
 
 
 
@@ -57,7 +64,7 @@
 ## Database design
 
 ### ER diagram
-<img width="1068" alt="スクリーンショット 2020-11-22 13 23 39" src="https://user-images.githubusercontent.com/69382240/99894161-13aa3280-2cc6-11eb-8d78-0751cbface89.png">
+<img width="1318" alt="スクリーンショット 2020-11-23 18 09 00" src="https://user-images.githubusercontent.com/69382240/99944935-133d9480-2db7-11eb-8464-dd36b313de69.png">
 
 ### authors table
 
@@ -109,6 +116,7 @@
   - has_many :comments
   - has_many :bookmarks
   - has_many :comics, through: :bookmarks
+  - has_many :requests
 
 
 ### bookmark table
@@ -161,3 +169,17 @@
 
   - belongs_to :user
   - belongs_to :comic
+
+
+### requests table
+
+|Column|Type|Options|
+|------|----|-------|
+|comicname|string|null: false|
+|authorname|string|null: false|
+|comment|text|null: false|
+|user_id|references|null: false, foreign_key: true|
+
+- Association
+
+  - belongs_to :user
