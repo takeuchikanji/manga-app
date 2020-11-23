@@ -16,6 +16,7 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
     @author = Author.find(@comic.author.id)
     @comic_genre = @comic.genres.pluck(:genre)
+    @request_count = Request.all
   end
 
   def searchscreen    ##検索画面
