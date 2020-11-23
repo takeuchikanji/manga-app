@@ -1,0 +1,29 @@
+.wrapper__comic
+
+  .header__comic
+    %p.app-title__box
+      = link_to "Comic-Remember", root_path, class: "app-title"
+  .main__comic-box
+    %section.main__comic-box__center
+      %h2 要望フォーム
+      = form_with model: @request, :url => {:action => :create}, html: {class: "Form"}, local: true do |a|
+        .field_all
+          %p.request-info 紹介作品以外で、紹介を希望する作品があればこちらから要望ください。
+          .field
+            = a.label :comicname, "作品名"
+            %br
+            = a.text_field :comicname, class: "form_default", required: true, placeholder: "例）アライブ 最終進化的少年"
+            %br
+          .field
+            = a.label :authorname, "作者名"
+            %span （作者が2名以上いる場合は続けてご入力ください）
+            %br
+            = a.text_field :authorname, class: "form_default", required: true, placeholder: "例）河島正 × あだちとか"
+            %br
+          .field
+            = a.label :comment, "おすすめポイント"
+            %br
+            = a.text_area :comment, class: "form_review", required: true, placeholder: "3つ程おすすめポイントをお書きください"
+            %br
+          .actions
+            = a.submit "送信する", class: "form_submit"

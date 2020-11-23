@@ -37,6 +37,10 @@
           .maru_btn
           = link_to user_showbookmark_path(current_user) do
             %p ブックマーク一覧
+        %li.menu_list
+          .maru_btn
+          = link_to new_user_request_path(current_user) do
+            %p 要望フォーム
         - if user_signed_in? && current_user.admin?
           %li.menu_list
             .maru_btn
