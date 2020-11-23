@@ -1,0 +1,30 @@
+.wrapper__request
+
+  .header__user
+    %p.app-title__box
+      = link_to "Comic-Remember", root_path, class: "app-title"
+
+  .display__request
+    %section.request__box
+      .request__box__up
+        %h2.requests__all 要望詳細
+        .request__delete
+          = link_to "削除する", user_request_path(current_user, @request), data: { confirm: "紹介依頼を削除しますか？" }, method: :delete, class: "request__delete__btn" , id: "request_delete_button", value: "削除する"
+      .display__list
+        .request__UserName
+          %span
+            = @request.user.name
+          さんからの紹介希望
+        .request__ComicName
+          作品：
+          %span
+            = @request.comicname
+        .request__AuthorName
+          作者：
+          %span
+            = @request.authorname
+        .request__Comment
+          おすすめポイント
+          %p
+            = @request.comment
+

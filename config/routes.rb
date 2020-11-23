@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   resources :authors
   resources :users, only: :show do
     get 'showbookmark'
+    resources :requests, only: [:index, :new, :create, :destroy, :show]
   end
 end

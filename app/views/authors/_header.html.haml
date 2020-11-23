@@ -7,6 +7,11 @@
       %span 管理者のおすすめ漫画の紹介、備忘録なアプリとなっています。コメントもご自由にお書きください。
     .header__up__right
       %ul
+        - if user_signed_in? && current_user.admin?
+          %li.request__count
+            = icon("far", "bell")
+            %span
+              = @request_count.length
         - if user_signed_in?
           %li.current__user__name
             = current_user.name
@@ -37,7 +42,15 @@
           .maru_btn
           = link_to user_showbookmark_path(current_user) do
             %p ブックマーク一覧
+        %li.menu_list
+          .maru_btn
+          = link_to new_user_request_path(current_user) do
+            %p 要望フォーム
         - if user_signed_in? && current_user.admin?
+          %li.menu_list
+            .maru_btn
+            = link_to user_requests_path(current_user), class: "logout-btn btn" do
+              %p 要望一覧
           %li.menu_list
             .maru_btn
             = link_to new_author_path, class: "logout-btn btn" do
