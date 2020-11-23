@@ -9,6 +9,7 @@ class ComicsController < ApplicationController
     @comic_three = Comic.find_by(id: 3)
     # @comic_four = Comic.find_by(id: 4)
     # @comic_five = Comic.find_by(id: 5)
+    @request_count = Request.all
   end
 
   def show
@@ -27,6 +28,7 @@ class ComicsController < ApplicationController
     @comic_three = Comic.find_by(id: 3)
     # @comic_four = Comic.find_by(id: 4)
     # @comic_five = Comic.find_by(id: 5)
+    @request_count = Request.all
   end
 
   def search      ##検索結果の画面c
@@ -40,6 +42,7 @@ class ComicsController < ApplicationController
     @comic_three = Comic.find_by(id: 3)
     # @comic_four = Comic.find_by(id: 4)
     # @comic_five = Comic.find_by(id: 5)
+    @request_count = Request.all
   end
 
   def recommend
@@ -52,6 +55,7 @@ class ComicsController < ApplicationController
     @comic_three = Comic.find_by(id: 3)
     # @comic_four = Comic.find_by(id: 4)
     # @comic_five = Comic.find_by(id: 5)
+    @request_count = Request.all
   end
 
   private

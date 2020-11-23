@@ -7,6 +7,11 @@
       %span 管理者のおすすめ漫画の紹介、備忘録なアプリとなっています。コメントもご自由にお書きください。
     .header__up__right
       %ul
+        - if user_signed_in? && current_user.admin?
+          %li.request__count
+            = icon("far", "bell")
+            %span
+              = @request_count.length
         - if user_signed_in?
           %li.current__user__name
             = current_user.name

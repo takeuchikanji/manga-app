@@ -169,6 +169,25 @@
           transform: rotateZ(180deg);
       }
         // ログイン中の表示CSS
+        .request__count {
+          margin-right: 20px;
+          border-radius: 50px;
+          position: relative;
+          i {
+            font-size: 25px;
+            color: #8d9977;
+          }
+          span {
+            background-color: red;
+            border-radius: 50%;
+            padding: 0 2px;
+            font-size: 10px;
+            color: white;
+            position: absolute;
+            right: -10px;
+            top: -5px;
+          }
+        }
         .current__user__name {
           line-height: 30px;
           margin-right: 20px;
