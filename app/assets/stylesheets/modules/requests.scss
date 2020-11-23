@@ -42,11 +42,6 @@
     }
 
     ul {
-      .search-result__count {
-        font-size: 20px;
-        margin-bottom: 40px;
-        padding-left: 50px;
-      }
       .requests__list {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -58,6 +53,40 @@
             text-decoration: none;
             color: black;
           }
+        }
+      }
+    }
+    .display__list {
+      padding: 0 40px;
+      .request__UserName {
+        margin-bottom: 20px;
+        span { 
+          color: #1a73e8;
+          font-size: 20px;
+        }
+      }
+      .request__ComicName {
+        font-size: 22px;
+        margin-bottom: 20px;
+        span {
+          font-weight: bold;
+          font-size: 25px;
+        }
+      }
+      .request__AuthorName {
+        font-size: 22px;
+        margin-bottom: 20px;
+        span {
+          font-weight: bold;
+          font-size: 25px;
+        }
+      }
+      .request__Comment {
+        font-size: 22px;
+        margin-bottom: 20px;
+        p {
+          padding-left: 10px;
+          white-space: pre-wrap;
         }
       }
     }

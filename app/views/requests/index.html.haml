@@ -7,12 +7,12 @@
   .display__request
     %section.request__box
       %h2.requests__all 要望一覧
-      %ul.display__list
+      %ul
         - if @requests.present?
           .requests__list
             - @requests.each do |comic|
               %li.comic-box__result
-                = link_to "#" do
+                = link_to user_request_path(current_user, comic.id) do
                   = comic.comicname
         - else
           紹介依頼はありません

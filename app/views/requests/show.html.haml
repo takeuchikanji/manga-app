@@ -1,0 +1,27 @@
+.wrapper__request
+
+  .header__user
+    %p.app-title__box
+      = link_to "Comic-Remember", root_path, class: "app-title"
+
+  .display__request
+    %section.request__box
+      %h2.requests__all 要望詳細
+      .display__list
+        .request__UserName
+          %span
+            = @request.user.name
+          さんからの紹介希望
+        .request__ComicName
+          作品：
+          %span
+            = @request.comicname
+        .request__AuthorName
+          作者：
+          %span
+            = @request.authorname
+        .request__Comment
+          おすすめポイント
+          %p
+            = @request.comment
+
