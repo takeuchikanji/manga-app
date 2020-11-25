@@ -28,7 +28,7 @@ class AuthorsController < ApplicationController
       end
       comic = Comic.new(comic_params)
       comic.save!
-      redirect_to root_path
+      redirect_to root_path, notice: "作品を登録しました"
     else
       redirect_to root_path
     end
@@ -78,7 +78,7 @@ class AuthorsController < ApplicationController
           @comic.update(update_author_db_find_comic_params)
         end
       end
-      redirect_to root_path
+      redirect_to root_path, notice: "作品情報を更新しました"
     else
       redirect_to root_path
     end
@@ -93,7 +93,7 @@ class AuthorsController < ApplicationController
         comic = Comic.find_by(name: params[:format])
         comic.destroy
       end
-      redirect_to root_path
+      redirect_to root_path, notice: "作品を削除しました"
     else
       redirect_to root_path
     end
