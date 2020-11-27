@@ -12,12 +12,6 @@
       - if @comic_three
         %li.slide__image.display_hide{data: { index: 2 }}
           = link_to image_tag(@comic_three.image.url, class: "side__up__image", id: "slideshow_three"), comic_path(id: @comic_three)
-      -# - if @comic_four       ## スライドショーの枚数を3枚にするのでｺﾒﾝﾄｱｳﾄしておく
-      -#   %li.slide__image.display_hide{data: { index: 3 }}
-      -#     = link_to image_tag(@comic_four.image.url, class: "side__up__image", id: "slideshow_four"), comic_path(id: @comic_four)
-      -# - if @comic_five
-      -#   %li.slide__image.display_hide{data: { index: 4 }}
-      -#     = link_to image_tag(@comic_five.image.url, class: "side__up__image", id: "slideshow_five"), comic_path(id: @comic_five)
     %ul.side__up__list
       %li.side__up__list__btn
         .circle__btn-box{data: { index: 0 }}
@@ -28,12 +22,6 @@
       %li.side__up__list__btn
         .circle__btn-box{data: { index: 2 }}
           = icon("fas", "circle", class: "circle__btn")
-      -# %li.side__up__list__btn
-      -#   .circle__btn-box{data: { index: 3 }}
-      -#     = icon("fas", "circle", class: "circle__btn")
-      -# %li.side__up__list__btn
-      -#   .circle__btn-box{data: { index: 4 }}
-      -#     = icon("fas", "circle", class: "circle__btn")
   .side__under
     %p
       %span お知らせ

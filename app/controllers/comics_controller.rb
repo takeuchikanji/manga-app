@@ -6,8 +6,6 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    # @comic_four = Comic.find_by(id: 4)
-    # @comic_five = Comic.find_by(id: 5)
     @request_count = Request.all
   end
 
@@ -26,8 +24,6 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    # @comic_four = Comic.find_by(id: 4)
-    # @comic_five = Comic.find_by(id: 5)
     @request_count = Request.all
   end
 
@@ -40,8 +36,6 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    # @comic_four = Comic.find_by(id: 4)
-    # @comic_five = Comic.find_by(id: 5)
     @request_count = Request.all
   end
 
@@ -52,8 +46,6 @@ class ComicsController < ApplicationController
     @comic_one = Comic.find_by(id: 1)
     @comic_two = Comic.find_by(id: 7)
     @comic_three = Comic.find_by(id: 3)
-    # @comic_four = Comic.find_by(id: 4)
-    # @comic_five = Comic.find_by(id: 5)
     @request_count = Request.all
   end
 
