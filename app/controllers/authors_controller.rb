@@ -3,9 +3,9 @@ class AuthorsController < ApplicationController
   def index
     @authors = Author.order("name")
     @comic_info = Comic.order(created_at: :desc).limit(5)
-    @comic_one = Comic.find_by(id: 1)
-    @comic_two = Comic.find_by(id: 7)
-    @comic_three = Comic.find_by(id: 3)
+    @comic_one = Comic.find_by(id: 21)
+    @comic_two = Comic.find_by(id: 22)
+    @comic_three = Comic.find_by(id: 23)
     @request_count = Request.all
   end
 
