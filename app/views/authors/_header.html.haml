@@ -10,8 +10,9 @@
         - if user_signed_in? && current_user.admin?
           %li.request__count
             = icon("far", "bell")
-            %span
-              = @request_count.length
+            - unless @request_count.length == 0
+              %span
+                = @request_count.length
         - if user_signed_in?
           %li.current__user__name
             = current_user.name

@@ -12,6 +12,11 @@
 * I think sometimes when you read a comic book, you forget what you read over time. It serves as a reminder to keep track of the works you read.
 * Also, by posting the works you read on the web, you can share your impressions with other readers, so that they will want to read them and reread them.
 
+## Production environment
+* http://54.150.36.40/
+* 本アプリケーションのURLになります。
+* The URL for this application.
+
 ## Feature
 * このアプリの主なターゲットユーザーは、定期的に漫画を読んでいる人です。
 * 利用者が過去に読んだことのある作品に出会って再読を促すことを目的としています。
